@@ -8,6 +8,9 @@ public:
 	string getTypeOfRepair();
 	void setTypeOfRepair(string typeOfRepair);
 
+	friend ostream& operator << (ostream& out, SecondaryHousing& obj);
+	friend istream& operator >> (istream& in, SecondaryHousing& obj);
+
 private:
 	string typeOfRepair;
 };

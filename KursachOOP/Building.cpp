@@ -21,7 +21,25 @@ void Building::setLivingSpace(float livingSpace)
     this->livingSpace = livingSpace;
 }
 
-void Building::setYeatBuilt(int yearBuilt)
+void Building::setYearBuilt(int yearBuilt)
 {
     this->yearBuilt = yearBuilt;
+}
+
+ostream& operator<<(ostream& out, Building& obj)
+{
+    return out << dynamic_cast<Estate&>(obj) << setw(10) << obj.livingSpace << setw(10) << obj.yearBuilt;
+}
+
+istream& operator>>(istream& in, Building& obj)
+{
+    in >> dynamic_cast<Estate&>(obj);
+
+    cout << "Living Space: ";
+    in >> obj.livingSpace;
+
+    cout << "Year built: ";
+    in >> obj.yearBuilt;
+
+    return in;
 }

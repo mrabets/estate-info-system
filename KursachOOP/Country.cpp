@@ -15,3 +15,18 @@ void Country::setDistanceFromCity(int distanceFromCity)
 {
     this->distanceFromCity = distanceFromCity;
 }
+
+ostream& operator<<(ostream& out, Country& obj)
+{
+    return out << dynamic_cast<House&>(obj) << setw(10) << obj.distanceFromCity;
+}
+
+istream& operator>>(istream& in, Country& obj)
+{
+    in >> dynamic_cast<House&>(obj);
+
+    cout << "Distance from city: ";
+    in >> obj.distanceFromCity;
+
+    return in;
+}

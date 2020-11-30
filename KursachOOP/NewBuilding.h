@@ -8,7 +8,8 @@ public:
 	int getWarranty();
 	void setWarranty(int warranty);
 
-	friend ostream& operator << (ostream& out, const NewBuilding& obj);
+	friend ostream& operator << (ostream& out, NewBuilding& obj);
+	friend istream& operator >> (istream& in, NewBuilding& obj);
 
 private:
 	int warranty;

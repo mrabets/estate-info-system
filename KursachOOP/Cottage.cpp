@@ -15,3 +15,18 @@ void Cottage::setNameOfVillage(string nameOfVillage)
 {
     this->nameOfVillage = nameOfVillage;
 }
+
+ostream& operator<<(ostream& out, Cottage& obj)
+{
+    return out << dynamic_cast<House&>(obj) << setw(10) << obj.nameOfVillage;
+}
+
+istream& operator>>(istream& in, Cottage& obj)
+{
+    in >> dynamic_cast<House&>(obj);
+
+    cout << "Name of village: ";
+    in >> obj.nameOfVillage;
+
+    return in;
+}

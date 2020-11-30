@@ -13,7 +13,10 @@ public:
 	void setRoomsAmount(int roomsAmount);
 	void setFloor(int floor);
 
-protected:
+	friend ostream& operator << (ostream& out, Apartment& obj);
+	friend istream& operator >> (istream& in, Apartment& obj);
+
+private:
 	int roomsAmount;
 	int floor;
 };

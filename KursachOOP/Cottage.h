@@ -8,6 +8,9 @@ public:
 	string getNameOfVillage();
 	void setNameOfVillage(string nameOfVillage);
 
+	friend ostream& operator << (ostream& out, Cottage& obj);
+	friend istream& operator >> (istream& in, Cottage& obj);
+
 private:
 	string nameOfVillage;
 };

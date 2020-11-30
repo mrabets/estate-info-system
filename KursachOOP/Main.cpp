@@ -1,7 +1,11 @@
-#include "NewBuilding.h"
 #include <iostream>
-using namespace std;
+#include "NewBuilding.h"
+#include "SecondaryHousing.h"
+#include "Cottage.h"
+#include "Country.h"
+#include "Ring.h"
 
+using namespace std;
 
 int main()
 {
@@ -18,7 +22,7 @@ int main()
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		cout << newBuildings[i];
+		cout << newBuildings[i] << endl;
 	}
 
 	return 0;

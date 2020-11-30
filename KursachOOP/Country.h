@@ -8,6 +8,9 @@ public:
 	int getDistanceFromCity();
 	void setDistanceFromCity(int distanceFromCity);
 
+	friend ostream& operator << (ostream& out, Country& obj);
+	friend istream& operator >> (istream& in, Country& obj);
+
 private:
 	int distanceFromCity;
 };

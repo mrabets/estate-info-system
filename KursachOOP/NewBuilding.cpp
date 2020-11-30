@@ -16,8 +16,17 @@ void NewBuilding::setWarranty(int warranty)
     this->warranty = warranty;
 }
 
-ostream& operator<<(ostream& out, const NewBuilding& obj)
+ostream& operator<<(ostream& out, NewBuilding& obj)
 {
-    return out << obj.address << " " << obj.owner << " " << obj.price << " " << obj.floor << " " <<
-        obj.livingSpace << " " << obj.yearBuilt << " " << obj.warranty << " " << obj.roomsAmount << endl;
+    return out << dynamic_cast<Apartment&>(obj) << setw(10) << obj.warranty;
+}
+
+istream& operator>>(istream& in, NewBuilding& obj)
+{
+    in >> dynamic_cast<Apartment&>(obj);
+
+    cout << "Warranty: ";
+    in >> obj.warranty;
+
+    return in;
 }

@@ -36,3 +36,22 @@ void Estate::setPrice(float price)
 {
 	this->price = price;
 }
+
+ostream& operator<<(ostream& out, Estate& obj)
+{
+	return out << setw(15) << obj.address << setw(20) << obj.owner << setw(10) << obj.price;
+}
+
+istream& operator>>(istream& in, Estate& obj)
+{
+	cout << "Address: ";
+	in >> obj.address;
+
+	cout << "Owner: ";
+	in >> obj.owner;
+
+	cout << "Price: ";
+	in >> obj.price;
+
+	return in;
+}

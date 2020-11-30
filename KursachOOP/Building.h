@@ -10,9 +10,12 @@ public:
 	int getYearBuilt();
 
 	void setLivingSpace(float livingSpace);
-	void setYeatBuilt(int yearBuilt);
+	void setYearBuilt(int yearBuilt);
 
-protected:
+	friend ostream& operator << (ostream& out, Building& obj);
+	friend istream& operator >> (istream& in, Building& obj);
+
+private:
 	float livingSpace;
 	int yearBuilt;
 };

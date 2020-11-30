@@ -161,6 +161,7 @@
     <ClInclude Include="House.h" />
     <ClInclude Include="Estate.h" />
     <ClInclude Include="NewBuilding.h" />
+    <ClInclude Include="Ring.h" />
     <ClInclude Include="SecondaryHousing.h" />
   </ItemGroup>
   <ItemGroup>

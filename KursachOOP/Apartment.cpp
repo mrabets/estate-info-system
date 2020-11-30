@@ -28,3 +28,21 @@ void Apartment::setFloor(int floor)
 {
     this->floor = floor;
 }
+
+ostream& operator<<(ostream& out, Apartment& obj)
+{
+    return out << dynamic_cast<Building&>(obj) << setw(10) << obj.floor << setw(10) << obj.roomsAmount;
+}
+
+istream& operator>>(istream& in, Apartment& obj)
+{
+    in >> dynamic_cast<Building&>(obj);
+
+    cout << "Floor: ";
+    in >> obj.floor;
+
+    cout << "Rooms amount: ";
+    in >> obj.roomsAmount;
+
+    return in;
+}

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iomanip>
 #include "Client.h"
 using namespace std;
 
@@ -17,7 +18,11 @@ public:
 	void setOwner(string owner);
 	void setPrice(float price);
 
-protected:
+	friend ostream& operator << (ostream& out, Estate& obj);
+	friend istream& operator >> (istream& in, Estate& obj);
+
+
+private:
 	string address;
 	string owner;
 	float price;

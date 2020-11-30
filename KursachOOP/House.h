@@ -11,7 +11,10 @@ public:
 	int getFloorsAmount();
 	void setFloorsAmount(int floorsAmount);
 
-protected:
+	friend ostream& operator << (ostream& out, House& obj);
+	friend istream& operator >> (istream& in, House& obj);
+
+private:
 	int floorsAmount;
 };
 
