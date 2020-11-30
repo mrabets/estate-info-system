@@ -7,10 +7,6 @@ Estate::Estate(string address, string owner, float price)
 	this->price = price;
 }
 
-Estate::~Estate()
-{
-}
-
 string Estate::getAddress()
 {
 	return address;

@@ -9,10 +9,6 @@ Apartment::Apartment(int roomsAmount, int floor, float livingSpace, int yearBuil
     this->floor = floor;
 }
 
-Apartment::~Apartment()
-{
-}
-
 int Apartment::getRoomsAmount()
 {
     return this->roomsAmount;

@@ -4,7 +4,7 @@ class Building : public Estate
 {
 public:
 	Building(float livingSpace, int yearBuilt, string address, string owner, float price);
-	virtual ~Building() = 0;
+	virtual ~Building() = default;
 
 	float getLivingSpace();
 	int getYearBuilt();
