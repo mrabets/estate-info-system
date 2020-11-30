@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Apartment" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAACAAAAIAAAAAAAAAAAAAgAgAAAAAAA=</HashCode>
+      <FileName>Apartment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Building" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAiAgAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Building.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Client" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAQAAAAACQAAAQAAgAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Client.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ground" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAgAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ground.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="House" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>House.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Estate" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBgAAAAAAggAAAAAAAARAAAAIAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>Estate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewBuilding" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAA=</HashCode>
+      <FileName>NewBuilding.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondaryHousing" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SecondaryHousing.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cottage" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cottage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Country" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAABAAAAAAA=</HashCode>
+      <FileName>Country.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
