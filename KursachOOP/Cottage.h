@@ -3,6 +3,7 @@
 class Cottage :public House
 {
 public:
+	Cottage();
 	Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price);
 
 	string getNameOfVillage();

@@ -1,5 +1,10 @@
 #include "Country.h"
 
+Country::Country() : House()
+{
+    this->distanceFromCity = 0;
+}
+
 Country::Country(int distanceFromCity, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price)
     : House(floorsAmount, livingSpace, yearBuilt, address, owner, price)
 {

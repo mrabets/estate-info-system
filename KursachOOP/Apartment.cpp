@@ -2,6 +2,12 @@
 
 
 
+Apartment::Apartment() : Building()
+{
+    this->roomsAmount = 0;
+    this->floor = 0;
+}
+
 Apartment::Apartment(int roomsAmount, int floor, float livingSpace, int yearBuilt, string address, string owner, float price)
     : Building(livingSpace, yearBuilt, address, owner, price)
 {

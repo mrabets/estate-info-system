@@ -1,5 +1,10 @@
 #include "Cottage.h"
 
+Cottage::Cottage() : House()
+{
+    this->nameOfVillage = "";
+}
+
 Cottage::Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price)
     : House(floorsAmount, livingSpace, yearBuilt, address, owner, price)
 {
@@ -27,6 +32,7 @@ istream& operator>>(istream& in, Cottage& obj)
 
     cout << "Name of village: ";
     in >> obj.nameOfVillage;
+    rewind stdin;
 
     return in;
 }

@@ -3,6 +3,7 @@
 class Country : public House
 {
 public:
+	Country();
 	Country(int distanceFromCity, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price);
 
 	int getDistanceFromCity();

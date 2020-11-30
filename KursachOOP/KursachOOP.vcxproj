@@ -160,6 +160,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="Estate.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="NewBuilding.h" />
     <ClInclude Include="Ring.h" />
     <ClInclude Include="SecondaryHousing.h" />

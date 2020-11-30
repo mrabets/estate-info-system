@@ -4,6 +4,7 @@
 class Apartment : public Building
 {
 public:
+	Apartment();
 	Apartment(int roomsAmount, int floor, float livingSpace, int yearBuilt, string address, string owner, float price);
 	virtual ~Apartment() = default;
 

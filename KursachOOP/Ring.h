@@ -43,6 +43,7 @@ private:
 	int size;
 	Node<T>* head;
 
+	void displayBase();
 };
 
 template<class T>
@@ -236,7 +237,7 @@ void Ring<T>::clear()
 }
 
 template<class T>
-void Ring<T>::display()
+void Ring<T>::displayBase()
 {
 	if (head == nullptr)
 	{
@@ -254,88 +255,54 @@ void Ring<T>::display()
 	cout << current->data;
 }
 
+template<class T>
+void Ring<T>::display()
+{
+	displayBase();
+}
+
 template<>
 void Ring<NewBuilding>::display()
 {
-	if (head == nullptr)
-	{
-		cout << "Ring is empty" << endl;
-		return;
-	}
+	cout << setw(18) << "ÀÄÐÅÑ" << setw(15) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÝÒÀÆ" << setw(18) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(15) << "ÃÀÐÀÍÒÈß" << endl;
 
-	cout << setw(10) << "MODEL" << setw(10) << "BATTERY" << setw(10) << "MATRIX" << endl;
-
-	Node<NewBuilding>* current = head;
-	while (current->next != head)
-	{
-		cout << current->data;
-		current = current->next;
-	}
-
-	cout << current->data;
+	displayBase();
 }
 
 template<>
 void Ring<SecondaryHousing>::display()
 {
-	if (head == nullptr)
-	{
-		cout << "Ring is empty" << endl;
-		return;
-	}
+	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÝÒÀÆ" << setw(10) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(10) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
 
-	cout << setw(10) << "MODEL" << setw(10) << "BATTERY" << setw(10) << "STYLUS" << endl;
-
-	Node<SecondaryHousing>* current = head;
-	while (current->next != head)
-	{
-		cout << current->data;
-		current = current->next;
-	}
-
-	cout << current->data;
+	displayBase();
 }
 
 template<>
 void Ring<Cottage>::display()
 {
-	if (head == nullptr)
-	{
-		cout << "Ring is empty" << endl;
-		return;
-	}
+	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(10) << "ÏÎÑ¨ËÎÊ" << endl;
 
-	cout << setw(10) << "MODEL" << setw(10) << "POWER" << setw(10) << "COLOUR" << endl;
-
-	Node<Cottage>* current = head;
-	while (current->next != head)
-	{
-		cout << current->data;
-		current = current->next;
-	}
-
-	cout << current->data;
+	displayBase();
 }
 
 template<>
 void Ring<Country>::display()
 {
-	if (head == nullptr)
-	{
-		cout << "Ring is empty" << endl;
-		return;
-	}
+	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(18) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
 
-	cout << setw(10) << "MODEL" << setw(10) << "POWER" << setw(10) << "COLOUR" << endl;
+	displayBase();
+}
 
-	Node<Country>* current = head;
-	while (current->next != head)
-	{
-		cout << current->data;
-		current = current->next;
-	}
+template<>
+void Ring<Ground>::display()
+{
+	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
 
-	cout << current->data;
+	displayBase();
 }
 
 template<class T>

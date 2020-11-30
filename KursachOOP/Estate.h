@@ -7,6 +7,7 @@ using namespace std;
 class Estate
 {
 public:
+	Estate();
 	Estate(string address, string owner, float price);
 	virtual ~Estate() = default;
 

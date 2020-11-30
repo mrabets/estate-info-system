@@ -1,5 +1,10 @@
 #include "House.h"
 
+House::House() : Building()
+{
+    this->floorsAmount = 0;
+}
+
 House::House(int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price)
     : Building(livingSpace, yearBuilt, address, owner, price)
 {

@@ -1,5 +1,11 @@
 #include "Building.h"
 
+Building::Building() : Estate()
+{
+    this->livingSpace = 0.0f;
+    this->yearBuilt = 0;
+}
+
 Building::Building(float livingSpace, int yearBuilt, string address, string owner, float price) : Estate(address, owner, price)
 {
     this->livingSpace = livingSpace;

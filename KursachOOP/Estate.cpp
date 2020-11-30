@@ -1,5 +1,12 @@
 #include "Estate.h"
 
+Estate::Estate()
+{
+	this->address = "None";
+	this->owner = "None";
+	this->price = 0;
+}
+
 Estate::Estate(string address, string owner, float price)
 {
 	this->address = address;
@@ -46,9 +53,11 @@ istream& operator>>(istream& in, Estate& obj)
 {
 	cout << "Address: ";
 	in >> obj.address;
+	rewind stdin;
 
 	cout << "Owner: ";
 	in >> obj.owner;
+	rewind stdin;
 
 	cout << "Price: ";
 	in >> obj.price;

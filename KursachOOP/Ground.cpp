@@ -1,5 +1,10 @@
 #include "Ground.h"
 
+Ground::Ground() : Estate()
+{
+    this->landSquare = 0.0f;
+}
+
 Ground::Ground(float landSquare, string address, string owner, float price)
     : Estate(address, owner, price)
 {

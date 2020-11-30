@@ -3,6 +3,7 @@
 class Building : public Estate
 {
 public:
+	Building();
 	Building(float livingSpace, int yearBuilt, string address, string owner, float price);
 	virtual ~Building() = default;
 
