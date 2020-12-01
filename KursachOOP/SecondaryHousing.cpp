@@ -23,14 +23,14 @@ void SecondaryHousing::setTypeOfRepair(string typeOfRepair)
 
 ostream& operator<<(ostream& out, SecondaryHousing& obj)
 {
-    return out << dynamic_cast<Apartment&>(obj) << setw(10) << obj.typeOfRepair;
+    return out << dynamic_cast<Apartment&>(obj) << setw(18) << obj.typeOfRepair << endl;
 }
 
 istream& operator>>(istream& in, SecondaryHousing& obj)
 {
     in >> dynamic_cast<Apartment&>(obj);
 
-    cout << "Type of repair: ";
+    cout << "Тип ремонта: ";
     in >> obj.typeOfRepair;
     rewind stdin;
 

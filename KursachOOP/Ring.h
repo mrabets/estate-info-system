@@ -146,7 +146,7 @@ void Ring<T>::deleteByIndex(int index)
 {
 	if (head == nullptr)
 	{
-		cout << "Ring is empty" << endl;
+		cout << "Òàáëèöà ïóñòà" << endl;
 		return;
 	}
 
@@ -184,7 +184,7 @@ void Ring<T>::deleteFirst()
 {
 	if (head == nullptr)
 	{
-		cout << "Ring is empty" << endl;
+		cout << "Òàáëèöà ïóñòà" << endl;
 		return;
 	}
 
@@ -224,7 +224,7 @@ void Ring<T>::clear()
 {
 	if (head == nullptr)
 	{
-		cout << "Ring is empty" << endl;
+		cout << "Òàáëèöà ïóñòà" << endl;
 		return;
 	}
 
@@ -233,7 +233,7 @@ void Ring<T>::clear()
 		deleteFirst();
 	}
 
-	cout << "Successful deletion" << endl;
+	cout << "Óäàëåíî óñïåøíî" << endl;
 }
 
 template<class T>
@@ -241,7 +241,7 @@ void Ring<T>::displayBase()
 {
 	if (head == nullptr)
 	{
-		cout << "Ring is empty" << endl;
+		cout << setw(20) << "..." << endl;
 		return;
 	}
 
@@ -264,8 +264,8 @@ void Ring<T>::display()
 template<>
 void Ring<NewBuilding>::display()
 {
-	cout << setw(18) << "ÀÄÐÅÑ" << setw(15) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-		<< setw(10) << "ÝÒÀÆ" << setw(18) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(15) << "ÃÀÐÀÍÒÈß" << endl;
+	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
 
 	displayBase();
 }
@@ -273,8 +273,8 @@ void Ring<NewBuilding>::display()
 template<>
 void Ring<SecondaryHousing>::display()
 {
-	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-		<< setw(10) << "ÝÒÀÆ" << setw(10) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(10) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
+	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
 
 	displayBase();
 }
@@ -282,8 +282,8 @@ void Ring<SecondaryHousing>::display()
 template<>
 void Ring<Cottage>::display()
 {
-	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-		<< setw(10) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(10) << "ÏÎÑ¨ËÎÊ" << endl;
+	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
 
 	displayBase();
 }
@@ -291,8 +291,8 @@ void Ring<Cottage>::display()
 template<>
 void Ring<Country>::display()
 {
-	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(10) << "ÆÈËÀß ÏËÎÙÀÄÜ" << setw(10) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-		<< setw(10) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(18) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
+	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+		<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
 
 	displayBase();
 }
@@ -300,7 +300,7 @@ void Ring<Country>::display()
 template<>
 void Ring<Ground>::display()
 {
-	cout << setw(10) << "ÀÄÐÅÑ" << setw(10) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
+	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
 
 	displayBase();
 }

@@ -46,20 +46,21 @@ void Estate::setPrice(float price)
 
 ostream& operator<<(ostream& out, Estate& obj)
 {
-	return out << setw(15) << obj.address << setw(20) << obj.owner << setw(10) << obj.price;
+	return out << setw(20) << obj.address << setw(20) << obj.owner << setw(10) << obj.price;
 }
 
 istream& operator>>(istream& in, Estate& obj)
 {
-	cout << "Address: ";
-	in >> obj.address;
+	cout << "Адрес: ";
 	rewind stdin;
+	getline(in, obj.address);
 
-	cout << "Owner: ";
-	in >> obj.owner;
+	cout << "Владелец: ";
 	rewind stdin;
+	getline(in, obj.owner);
+	
 
-	cout << "Price: ";
+	cout << "Цена: ";
 	in >> obj.price;
 
 	return in;

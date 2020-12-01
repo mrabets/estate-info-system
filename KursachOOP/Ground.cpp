@@ -23,14 +23,14 @@ void Ground::setLandSquare(float landSquare)
 
 ostream& operator<<(ostream& out, Ground& obj)
 {
-    return out << dynamic_cast<Estate&>(obj) << setw(10) << obj.landSquare;
+    return out << dynamic_cast<Estate&>(obj) << setw(20) << obj.landSquare << endl;
 }
 
 istream& operator>>(istream& in, Ground& obj)
 {
     in >> dynamic_cast<Estate&>(obj);
 
-    cout << "Land square: ";
+    cout << "Площадь земельного участка: ";
     in >> obj.landSquare;
 
     return in;

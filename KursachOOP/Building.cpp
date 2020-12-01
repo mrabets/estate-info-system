@@ -34,17 +34,17 @@ void Building::setYearBuilt(int yearBuilt)
 
 ostream& operator<<(ostream& out, Building& obj)
 {
-    return out << dynamic_cast<Estate&>(obj) << setw(10) << obj.livingSpace << setw(10) << obj.yearBuilt;
+    return out << dynamic_cast<Estate&>(obj) << setw(18) << obj.livingSpace << setw(18) << obj.yearBuilt;
 }
 
 istream& operator>>(istream& in, Building& obj)
 {
     in >> dynamic_cast<Estate&>(obj);
 
-    cout << "Living Space: ";
+    cout << "Жилая площадь: ";
     in >> obj.livingSpace;
 
-    cout << "Year built: ";
+    cout << "Год постройки: ";
     in >> obj.yearBuilt;
 
     return in;

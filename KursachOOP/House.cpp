@@ -23,14 +23,14 @@ void House::setFloorsAmount(int floorsAmount)
 
 ostream& operator<<(ostream& out, House& obj)
 {
-    return out << dynamic_cast<Building&>(obj) << setw(10) << obj.floorsAmount;
+    return out << dynamic_cast<Building&>(obj) << setw(20) << obj.floorsAmount;
 }
 
 istream& operator>>(istream& in, House& obj)
 {
     in >> dynamic_cast<Building&>(obj);
 
-    cout << "Floors amount: ";
+    cout << "Количество этажей: ";
     in >> obj.floorsAmount;
 
     return in;
