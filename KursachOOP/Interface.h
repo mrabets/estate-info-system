@@ -7,6 +7,7 @@
 #include "Ground.h"
 #include "Ring.h"
 
+
 template<class T>
 class Interface
 {
@@ -34,6 +35,7 @@ void Interface<T>::serviceMenu()
 			<< "7. Удалить все данные" << endl << endl
 			<< "8. Редактировать данные" << endl << endl
 			<< "9. Вывести данные на экран" << endl << endl
+			<< "10. Работа с базой данных" << endl << endl
 			<< "0. Назад" << endl;
 
 		int choiceMenu;
@@ -116,6 +118,10 @@ void Interface<T>::serviceMenu()
 
 		case 9:
 			object.display();
+			break;
+
+		case 10:
+			object.saveDataToFile();
 			break;
 
 		case 0:

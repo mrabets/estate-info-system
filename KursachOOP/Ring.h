@@ -1,5 +1,8 @@
 #pragma once
 
+#include <typeinfo>
+#include <fstream>
+
 using namespace std;
 
 template<class T>
@@ -19,7 +22,7 @@ public:
 	void deleteByIndex(int index);
 
 	void changeData(int index);
-
+	void saveDataToFile();
 	void display();
 
 	int getSize();
@@ -332,6 +335,76 @@ void Ring<T>::changeData(int index)
 
 		cin >> data;
 		current->data = data;
+	}
+}
+
+template<class T>
+void Ring<T>::saveDataToFile()
+{
+	fstream fs;
+
+	string fileName = typeid(T).name();
+	fileName += ".txt";
+
+	while (true)
+	{
+		fs.open(fileName, fstream::in | fstream::out | fstream::app);
+
+		if (!fs.is_open())
+		{
+			cout << "Ошибка открытия файла" << endl;
+		}
+		else
+		{
+			cout << "Выберите опцию: " << endl << endl
+				<< "1. Записать данные в базу данных" << endl
+				<< "2. Извлечь данные из базы данных" << endl << endl
+				<< "0. Назад" << endl;
+
+			int choice;
+			cin >> choice;
+
+			string info;
+			switch (choice)
+			{
+			case 1:
+			{
+				if (head == nullptr)
+				{
+					cout << "Таблица пуста" << endl;
+					break;
+				}
+
+				Node<T>* current = head;
+				while (current->next != head)
+				{
+					fs << current->data;
+					current = current->next;
+				}
+
+				fs << current->data;
+			}
+
+				break;
+
+			case 2:
+			{
+				char ch;
+				while (fs.get(ch))
+				{
+					cout << ch;
+				}
+			}
+
+				break;
+
+			case 0:
+				system("CLS");
+				return;
+			}
+
+			fs.close();
+		}
 	}
 }
 
