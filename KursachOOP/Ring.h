@@ -47,6 +47,7 @@ private:
 	Node<T>* head;
 
 	void displayBase();
+	void saveDataToFileBase(string fileName);
 };
 
 template<class T>
@@ -339,35 +340,67 @@ void Ring<T>::changeData(int index)
 }
 
 template<class T>
-void Ring<T>::saveDataToFile()
+void Ring<T>::saveDataToFileBase(string fileName)
 {
 	fstream fs;
 
-	string fileName = typeid(T).name();
-	fileName += ".txt";
-
 	while (true)
 	{
-		fs.open(fileName, fstream::in | fstream::out | fstream::app);
+		cout << "Выберите опцию: " << endl << endl
+			<< "1. Добавить данные в базу данных" << endl
+			<< "2. Перезаписать данные в базу данных" << endl
+			<< "3. Извлечь данные из базы данных" << endl << endl
+			<< "0. Назад" << endl;
 
-		if (!fs.is_open())
+		int choice;
+		cin >> choice;
+
+		system("CLS");
+
+		string info;
+		switch (choice)
 		{
-			cout << "Ошибка открытия файла" << endl;
-		}
-		else
+		case 1:
 		{
-			cout << "Выберите опцию: " << endl << endl
-				<< "1. Записать данные в базу данных" << endl
-				<< "2. Извлечь данные из базы данных" << endl << endl
-				<< "0. Назад" << endl;
+			fs.open(fileName, fstream::out | fstream::app);
 
-			int choice;
-			cin >> choice;
-
-			string info;
-			switch (choice)
+			if (!fs.is_open())
 			{
-			case 1:
+				cout << "Ошибка открытия файла" << endl;
+			}
+			else
+			{
+				if (head == nullptr)
+				{
+					cout << "Таблица пуста" << endl;
+					break;
+				}
+
+				Node<T>* current = head;
+
+				while (current->next != head)
+				{
+					fs << current->data;
+					current = current->next;
+				}
+
+				fs << current->data;
+			}
+
+			fs.close();
+		}
+
+		break;
+
+		case 2:
+		{
+			fs.open(fileName, fstream::out | fstream::trunc);
+
+			if (!fs.is_open())
+			{
+				cout << "Ошибка открытия файла" << endl;
+			}
+			else
 			{
 				if (head == nullptr)
 				{
@@ -385,27 +418,70 @@ void Ring<T>::saveDataToFile()
 				fs << current->data;
 			}
 
-				break;
+			fs.close();
+		}
 
-			case 2:
+		case 3:
+		{
+			fs.open(fileName, fstream::in);
+
+			char ch;
+			while (fs.get(ch))
 			{
-				char ch;
-				while (fs.get(ch))
-				{
-					cout << ch;
-				}
-			}
-
-				break;
-
-			case 0:
-				system("CLS");
-				return;
+				cout << ch;
 			}
 
 			fs.close();
 		}
+
+		break;
+
+		case 0:
+			return;
+		}
 	}
+}
+
+template<class T>
+void Ring<T>::saveDataToFile()
+{
+	string fileName = "info.txt";
+	saveDataToFileBase(fileName);
+}
+
+template<>
+void Ring<NewBuilding>::saveDataToFile()
+{
+	string fileName = "NewBuilding.txt";
+	saveDataToFileBase(fileName);
+}
+
+template<>
+void Ring<SecondaryHousing>::saveDataToFile()
+{
+	string fileName = "SecondaryHousing.txt";
+	saveDataToFileBase(fileName);
+}
+
+template<>
+void Ring<Cottage>::saveDataToFile()
+{
+	string fileName = "Cottage.txt";
+	saveDataToFileBase(fileName);
+}
+
+template<>
+void Ring<Country>::saveDataToFile()
+{
+	string fileName = "Country.txt";
+	saveDataToFileBase(fileName);
+}
+
+template<>
+void Ring<Ground>::saveDataToFile()
+{
+	string fileName = "Ground.txt";
+	saveDataToFileBase(fileName);
 }
 
 template<>

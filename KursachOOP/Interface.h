@@ -7,7 +7,6 @@
 #include "Ground.h"
 #include "Ring.h"
 
-
 template<class T>
 class Interface
 {
