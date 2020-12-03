@@ -11,11 +11,11 @@ public:
 	Estate(string address, string owner, float price);
 	virtual ~Estate() = default;
 
-	string getAddress();
+	string getCity();
 	string getOwner();
 	float getPrice();
 
-	void setAddress(string address);
+	void setCity(string city);
 	void setOwner(string owner);
 	void setPrice(float price);
 
@@ -24,7 +24,7 @@ public:
 
 
 private:
-	string address;
+	string city;
 	string owner;
 	float price;
 };

@@ -265,10 +265,12 @@ void Ring<T>::display()
 	displayBase();
 }
 
+
+
 template<>
 void Ring<NewBuilding>::display()
 {
-	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+	cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
 		<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
 
 	displayBase();
@@ -277,7 +279,7 @@ void Ring<NewBuilding>::display()
 template<>
 void Ring<SecondaryHousing>::display()
 {
-	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+	cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
 		<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
 
 	displayBase();
@@ -286,7 +288,7 @@ void Ring<SecondaryHousing>::display()
 template<>
 void Ring<Cottage>::display()
 {
-	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+	cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
 		<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
 
 	displayBase();
@@ -295,7 +297,7 @@ void Ring<Cottage>::display()
 template<>
 void Ring<Country>::display()
 {
-	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+	cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
 		<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
 
 	displayBase();
@@ -304,7 +306,7 @@ void Ring<Country>::display()
 template<>
 void Ring<Ground>::display()
 {
-	cout << setw(20) << "ÀÄÐÅÑ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
+	cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
 
 	displayBase();
 }
@@ -500,7 +502,7 @@ void Ring<NewBuilding>::changeData(int index)
 	while (true)
 	{
 		cout << "Âûáåðåòèå ïàðàìåòð:" << endl
-			<< "1. Àäðåñ" << endl
+			<< "1. Ãîðîä" << endl
 			<< "2. Âëàäåëåö" << endl
 			<< "3. Öåíà" << endl
 			<< "4. Æèëàÿ ïëîùàäü" << endl
@@ -518,10 +520,10 @@ void Ring<NewBuilding>::changeData(int index)
 		{
 		case 1:
 		{
-			cout << "Ââåäèòå íîâûé àäðåñ: ";
+			cout << "Ââåäèòå íîâûé ãîðîä: ";
 			string newAddress;
 			cin >> newAddress;
-			current->data.setAddress(newAddress);
+			current->data.setCity(newAddress);
 			return;
 		}
 
@@ -610,7 +612,7 @@ void Ring<SecondaryHousing>::changeData(int index)
 	while (true)
 	{
 		cout << "Âûáåðåòèå ïàðàìåòð:" << endl
-			<< "1. Àäðåñ" << endl
+			<< "1. Ãîðîä" << endl
 			<< "2. Âëàäåëåö" << endl
 			<< "3. Öåíà" << endl
 			<< "4. Æèëàÿ ïëîùàäü" << endl
@@ -628,10 +630,10 @@ void Ring<SecondaryHousing>::changeData(int index)
 		{
 		case 1:
 		{
-			cout << "Ââåäèòå íîâûé àäðåñ: ";
+			cout << "Ââåäèòå íîâûé ãîðîä: ";
 			string newAddress;
 			cin >> newAddress;
-			current->data.setAddress(newAddress);
+			current->data.setCity(newAddress);
 			return;
 		}
 
@@ -720,7 +722,7 @@ void Ring<Cottage>::changeData(int index)
 	while (true)
 	{
 		cout << "Âûáåðåòèå ïàðàìåòð:" << endl
-			<< "1. Àäðåñ" << endl
+			<< "1. Ãîðîä" << endl
 			<< "2. Âëàäåëåö" << endl
 			<< "3. Öåíà" << endl
 			<< "4. Æèëàÿ ïëîùàäü" << endl
@@ -737,10 +739,10 @@ void Ring<Cottage>::changeData(int index)
 		{
 		case 1:
 		{
-			cout << "Ââåäèòå íîâûé àäðåñ: ";
+			cout << "Ââåäèòå íîâûé ãîðîä: ";
 			string newAddress;
 			cin >> newAddress;
-			current->data.setAddress(newAddress);
+			current->data.setCity(newAddress);
 			return;
 		}
 
@@ -820,7 +822,7 @@ void Ring<Country>::changeData(int index)
 	while (true)
 	{
 		cout << "Âûáåðåòèå ïàðàìåòð:" << endl
-			<< "1. Àäðåñ" << endl
+			<< "1. Ãîðîä" << endl
 			<< "2. Âëàäåëåö" << endl
 			<< "3. Öåíà" << endl
 			<< "4. Æèëàÿ ïëîùàäü" << endl
@@ -837,10 +839,10 @@ void Ring<Country>::changeData(int index)
 		{
 		case 1:
 		{
-			cout << "Ââåäèòå íîâûé àäðåñ: ";
+			cout << "Ââåäèòå íîâûé ãîðîä: ";
 			string newAddress;
 			cin >> newAddress;
-			current->data.setAddress(newAddress);
+			current->data.setCity(newAddress);
 			return;
 		}
 
@@ -920,7 +922,7 @@ void Ring<Ground>::changeData(int index)
 	while (true)
 	{
 		cout << "Âûáåðåòèå ïàðàìåòð:" << endl
-			<< "1. Àäðåñ" << endl
+			<< "1. Ãîðîä" << endl
 			<< "2. Âëàäåëåö" << endl
 			<< "3. Öåíà" << endl
 			<< "4. Ïëîùàäü çåìåëüíîãî ó÷àñòêà" << endl;
@@ -934,10 +936,10 @@ void Ring<Ground>::changeData(int index)
 		{
 		case 1:
 		{
-			cout << "Ââåäèòå íîâûé àäðåñ: ";
+			cout << "Ââåäèòå íîâûé ãîðîä: ";
 			string newAddress;
 			cin >> newAddress;
-			current->data.setAddress(newAddress);
+			current->data.setCity(newAddress);
 			return;
 		}
 
