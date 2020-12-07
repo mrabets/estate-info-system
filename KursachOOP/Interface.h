@@ -8,8 +8,6 @@
 #include "Ring.h"
 #include "User.h"
 
-using namespace std;
-
 void pointOfEntry();
 
 void userMenu();
@@ -26,6 +24,7 @@ void userManage();
 void adminFileCreating();
 
 string encryptDecrypt(string toEncrypt);
+
 
 template<class T>
 class Interface
@@ -522,7 +521,7 @@ void Interface<SecondaryHousing>::searchData()
 
 			case 2:
 			{
-				int floor ;
+				int floor;
 				cout << "Ââåäèòå ãîðîä: ";
 				cin >> floor;
 
@@ -992,7 +991,7 @@ void Interface<Ground>::searchData()
 	}
 }
 
-void typeChoosingAdmin()
+void typeChoosing()
 {
 	while (true)
 	{
@@ -1184,7 +1183,7 @@ void viewEstate()
 			while (fs.get(ch))
 			{
 				cout << ch;
-			}	
+			}
 		}
 		fs.close();
 	}
@@ -1216,8 +1215,8 @@ void searchEstate()
 		{
 			Interface<NewBuilding> object;
 			object.searchData();
-		}			
-			break;
+		}
+		break;
 
 		case 3:
 			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
@@ -1260,7 +1259,7 @@ void searchEstate()
 		}
 		else
 		{
-			
+
 		}
 		fs.close();
 	}
@@ -1422,10 +1421,8 @@ void userRegistration()
 				system("CLS");
 
 				User user(login, password, age, sex, phone, email);
-				
-				fs << user;
 
-				//fs << login << " " << decrypted << "\n";
+				fs << user;
 
 				cout << "Óñïåøíàÿ ðåãèñòðàöèÿ" << endl;
 
@@ -1474,7 +1471,7 @@ void adminMenu()
 		switch (choice)
 		{
 		case 1:
-			typeChoosingAdmin();
+			typeChoosing();
 			break;
 
 		case 2:
@@ -1579,7 +1576,7 @@ void adminRegistration()
 
 				string encrypted = encryptDecrypt(password);
 
-				fs << setw(10) <<login << setw(10) << encrypted << "\n";
+				fs << setw(10) << login << setw(10) << encrypted << "\n";
 			}
 			break;
 
@@ -1661,13 +1658,13 @@ void userManage()
 				}
 			}
 
-				/*char symbol;
-				while (fs.get(symbol))
-				{
-					cout << symbol;
-				}*/
+			/*char symbol;
+			while (fs.get(symbol))
+			{
+				cout << symbol;
+			}*/
 
-				break;
+			break;
 
 			case 2:
 			{
@@ -1693,9 +1690,9 @@ void userManage()
 
 				}
 			}
-				
 
-				break;
+
+			break;
 
 			case 0:
 				return;
@@ -1741,5 +1738,3 @@ string encryptDecrypt(string toEncrypt)
 
 	return output;
 }
-
-

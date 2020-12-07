@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Apartment.h"
 class NewBuilding : public Apartment
 {

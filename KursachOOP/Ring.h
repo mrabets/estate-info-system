@@ -23,7 +23,6 @@ public:
 	void deleteByIndex(int index);
 
 	void changeData(int index);
-	void searchData();
 	void saveDataToFile();
 	void display();
 
@@ -343,117 +342,6 @@ void Ring<T>::changeData(int index)
 	}
 }
 
-template<>
-void Ring<NewBuilding>::searchData()
-{
-	fstream fs;
-
-	while (true)
-	{
-		fs.open("NewBuilding.txt", fstream::out | fstream::app);
-
-		if (!fs.is_open())
-		{
-			cout << "Ошибка открытия файла" << endl;
-		}
-		else
-		{
-			cout << "Искать по: " << endl << endl
-				<< "1. Городу" << endl
-				<< "2. Цене" << endl
-				<< "3. Количеству комнат" << endl << endl
-				<< "0. Назад" << endl;
-
-			int choice;
-			cin >> choice;
-
-			system("CLS");
-
-			switch (choice)
-			{
-				case 1:
-				{
-					string city;
-					cout << "Введите город: ";
-					cin >> city;
-
-					while (true)
-					{
-						NewBuilding object;
-						fs >> object;
-
-						if (fs.eof())
-						{
-							break;
-						}
-
-						if (object.getCity() == city)
-						{
-							cout << object;
-						}
-
-					}
-				}
-
-				case 2:
-				{
-					int minPrice;
-					int maxPrice;
-
-					cout << "Введите минимальную цену: ";
-					cin >> minPrice;
-
-					cout << "Введите максимальную цену: ";
-					cin >> maxPrice;
-
-					while (true)
-					{
-						NewBuilding object;
-						fs >> object;
-
-						if (fs.eof())
-						{
-							break;
-						}
-
-						if (object.getPrice() >= minPrice && object.getPrice() <= maxPrice)
-						{
-							cout << object;
-						}
-
-					}
-				}
-				
-				case 3:
-				{
-					int roomsAmount;
-					cout << "Введите количество комнат: ";
-					cin >> roomsAmount;
-
-					while (true)
-					{
-						NewBuilding object;
-						fs >> object;
-
-						if (fs.eof())
-						{
-							break;
-						}
-
-						if (object.getRoomsAmount() == roomsAmount)
-						{
-							cout << object;
-						}
-
-					}
-				}
-			}
-			
-		}
-
-		fs.close();
-	}
-}
 
 template<class T>
 void Ring<T>::saveDataToFileBase(string fileName)
@@ -465,7 +353,8 @@ void Ring<T>::saveDataToFileBase(string fileName)
 		cout << "Выберите опцию: " << endl << endl
 			<< "1. Добавить данные в базу данных" << endl
 			<< "2. Перезаписать данные в базу данных" << endl
-			<< "3. Извлечь данные из базы данных" << endl << endl
+			<< "3. Извлечь данные из базы данных" << endl
+			<< "4. Вывести данные из базы данных на экран" << endl
 			<< "0. Назад" << endl;
 
 		int choice;
@@ -539,12 +428,41 @@ void Ring<T>::saveDataToFileBase(string fileName)
 
 		case 3:
 		{
-			fs.open(fileName, fstream::in);
+			fs.open(fileName, fstream::in | fstream::out | fstream::app);
 
-			char ch;
-			while (fs.get(ch))
+			while (true)
 			{
-				cout << ch;
+				T object;
+				fs >> object;
+
+				if (fs.eof())
+				{
+					break;
+				}
+
+				addToEnd(object);
+			}
+
+			fs.close();
+		}
+
+		break;
+
+		case 4:
+		{
+			fs.open(fileName, fstream::in | fstream::out | fstream::app);
+
+			while (true)
+			{
+				T object;
+				fs >> object;
+
+				if (fs.eof())
+				{
+					break;
+				}
+
+				cout << object;
 			}
 
 			fs.close();
