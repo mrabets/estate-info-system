@@ -7,9 +7,9 @@ Estate::Estate()
 	this->price = 0;
 }
 
-Estate::Estate(string address, string owner, float price)
+Estate::Estate(string city, string owner, float price)
 {
-	this->city = address;
+	this->city = city;
 	this->owner = owner;
 	this->price = price;
 }
@@ -51,16 +51,5 @@ ostream& operator<<(ostream& out, Estate& obj)
 
 istream& operator>>(istream& in, Estate& obj)
 {
-	cout << "Город: ";
-	cin >> obj.city;
-
-	cout << "Владелец: ";
-	rewind stdin;
-	getline(in, obj.owner);
-	
-
-	cout << "Цена: ";
-	in >> obj.price;
-
-	return in;
+	return in >> obj.city >> obj.owner >> obj.price;
 }

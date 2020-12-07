@@ -5,8 +5,8 @@ Cottage::Cottage() : House()
     this->nameOfVillage = "";
 }
 
-Cottage::Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price)
-    : House(floorsAmount, livingSpace, yearBuilt, address, owner, price)
+Cottage::Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int yearBuilt, string city, string owner, float price)
+    : House(floorsAmount, livingSpace, yearBuilt, city, owner, price)
 {
     this->nameOfVillage = nameOfVillage;
 }
@@ -23,16 +23,10 @@ void Cottage::setNameOfVillage(string nameOfVillage)
 
 ostream& operator<<(ostream& out, Cottage& obj)
 {
-    return out << dynamic_cast<House&>(obj) << setw(15) << obj.nameOfVillage << endl;
+    return out << dynamic_cast<House&>(obj) << setw(15) << obj.nameOfVillage << "\n";
 }
 
 istream& operator>>(istream& in, Cottage& obj)
 {
-    in >> dynamic_cast<House&>(obj);
-
-    cout << "Название посёлка: ";
-    in >> obj.nameOfVillage;
-    rewind stdin;
-
-    return in;
+    return in >> dynamic_cast<House&>(obj) >> obj.nameOfVillage;  
 }

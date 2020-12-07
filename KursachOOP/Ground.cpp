@@ -5,8 +5,8 @@ Ground::Ground() : Estate()
     this->landSquare = 0.0f;
 }
 
-Ground::Ground(float landSquare, string address, string owner, float price)
-    : Estate(address, owner, price)
+Ground::Ground(float landSquare, string city, string owner, float price)
+    : Estate(city, owner, price)
 {
     this->landSquare = landSquare;
 }
@@ -23,15 +23,10 @@ void Ground::setLandSquare(float landSquare)
 
 ostream& operator<<(ostream& out, Ground& obj)
 {
-    return out << dynamic_cast<Estate&>(obj) << setw(20) << obj.landSquare << endl;
+    return out << dynamic_cast<Estate&>(obj) << setw(20) << obj.landSquare << "\n";
 }
 
 istream& operator>>(istream& in, Ground& obj)
 {
-    in >> dynamic_cast<Estate&>(obj);
-
-    cout << "Площадь земельного участка: ";
-    in >> obj.landSquare;
-
-    return in;
+    return in >> dynamic_cast<Estate&>(obj) >> obj.landSquare;
 }

@@ -5,8 +5,8 @@ NewBuilding::NewBuilding() : Apartment()
     this->warranty = 0;
 }
 
-NewBuilding::NewBuilding(int warranty, int roomsAmount, int floor, float livingSpace, int yearBuilt, string address, string owner, float price)
-    : Apartment(roomsAmount, floor, livingSpace, yearBuilt, address, owner, price)
+NewBuilding::NewBuilding(int warranty, int roomsAmount, int floor, float livingSpace, int yearBuilt, string city, string owner, float price)
+    : Apartment(roomsAmount, floor, livingSpace, yearBuilt, city, owner, price)
 {
     this->warranty = warranty;
 }
@@ -23,15 +23,10 @@ void NewBuilding::setWarranty(int warranty)
 
 ostream& operator<<(ostream& out, NewBuilding& obj)
 {
-    return out << dynamic_cast<Apartment&>(obj) << setw(12) << obj.warranty << endl;
+    return out << dynamic_cast<Apartment&>(obj) << setw(12) << obj.warranty << "\n";
 }
 
 istream& operator>>(istream& in, NewBuilding& obj)
 {
-    in >> dynamic_cast<Apartment&>(obj);
-
-    cout << "Срок гарантии: ";
-    in >> obj.warranty;
-
-    return in;
+    return in >> dynamic_cast<Apartment&>(obj) >> obj.warranty;
 }

@@ -28,10 +28,5 @@ ostream& operator<<(ostream& out, House& obj)
 
 istream& operator>>(istream& in, House& obj)
 {
-    in >> dynamic_cast<Building&>(obj);
-
-    cout << "Количество этажей: ";
-    in >> obj.floorsAmount;
-
-    return in;
+    return in >> dynamic_cast<Building&>(obj) >> obj.floorsAmount;
 }

@@ -6,7 +6,7 @@ Building::Building() : Estate()
     this->yearBuilt = 0;
 }
 
-Building::Building(float livingSpace, int yearBuilt, string address, string owner, float price) : Estate(address, owner, price)
+Building::Building(float livingSpace, int yearBuilt, string city, string owner, float price) : Estate(city, owner, price)
 {
     this->livingSpace = livingSpace;
     this->yearBuilt = yearBuilt;
@@ -39,13 +39,5 @@ ostream& operator<<(ostream& out, Building& obj)
 
 istream& operator>>(istream& in, Building& obj)
 {
-    in >> dynamic_cast<Estate&>(obj);
-
-    cout << "Жилая площадь: ";
-    in >> obj.livingSpace;
-
-    cout << "Год постройки: ";
-    in >> obj.yearBuilt;
-
-    return in;
+    return in >> dynamic_cast<Estate&>(obj) >> obj.livingSpace >> obj.yearBuilt;
 }

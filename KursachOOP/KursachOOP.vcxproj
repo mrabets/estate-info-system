@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Apartment.cpp" />
     <ClCompile Include="Building.cpp" />
-    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Cottage.cpp" />
     <ClCompile Include="Country.cpp" />
     <ClCompile Include="Ground.cpp" />
@@ -150,11 +149,11 @@
     <ClCompile Include="Estate.cpp" />
     <ClCompile Include="NewBuilding.cpp" />
     <ClCompile Include="SecondaryHousing.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apartment.h" />
     <ClInclude Include="Building.h" />
-    <ClInclude Include="Client.h" />
     <ClInclude Include="Cottage.h" />
     <ClInclude Include="Country.h" />
     <ClInclude Include="Ground.h" />
@@ -164,6 +163,7 @@
     <ClInclude Include="NewBuilding.h" />
     <ClInclude Include="Ring.h" />
     <ClInclude Include="SecondaryHousing.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

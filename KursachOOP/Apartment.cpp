@@ -8,8 +8,8 @@ Apartment::Apartment() : Building()
     this->floor = 0;
 }
 
-Apartment::Apartment(int roomsAmount, int floor, float livingSpace, int yearBuilt, string address, string owner, float price)
-    : Building(livingSpace, yearBuilt, address, owner, price)
+Apartment::Apartment(int roomsAmount, int floor, float livingSpace, int yearBuilt, string city, string owner, float price)
+    : Building(livingSpace, yearBuilt, city, owner, price)
 {
     this->roomsAmount = roomsAmount;
     this->floor = floor;
@@ -42,13 +42,5 @@ ostream& operator<<(ostream& out, Apartment& obj)
 
 istream& operator>>(istream& in, Apartment& obj)
 {
-    in >> dynamic_cast<Building&>(obj);
-
-    cout << "Этаж: ";
-    in >> obj.floor;
-
-    cout << "Количество комнат: ";
-    in >> obj.roomsAmount;
-
-    return in;
+    return in >> dynamic_cast<Building&>(obj) >> obj.floor >> obj.roomsAmount;
 }

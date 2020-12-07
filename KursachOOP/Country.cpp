@@ -5,8 +5,8 @@ Country::Country() : House()
     this->distanceFromCity = 0;
 }
 
-Country::Country(int distanceFromCity, int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price)
-    : House(floorsAmount, livingSpace, yearBuilt, address, owner, price)
+Country::Country(int distanceFromCity, int floorsAmount, float livingSpace, int yearBuilt, string city, string owner, float price)
+    : House(floorsAmount, livingSpace, yearBuilt, city, owner, price)
 {
     this->distanceFromCity = distanceFromCity;
 }
@@ -23,15 +23,10 @@ void Country::setDistanceFromCity(int distanceFromCity)
 
 ostream& operator<<(ostream& out, Country& obj)
 {
-    return out << dynamic_cast<House&>(obj) << setw(25) << obj.distanceFromCity << endl;
+    return out << dynamic_cast<House&>(obj) << setw(25) << obj.distanceFromCity << "\n";
 }
 
 istream& operator>>(istream& in, Country& obj)
 {
-    in >> dynamic_cast<House&>(obj);
-
-    cout << "Расстояние от города: ";
-    in >> obj.distanceFromCity;
-
-    return in;
+    return in >> dynamic_cast<House&>(obj) >> obj.distanceFromCity;
 }
