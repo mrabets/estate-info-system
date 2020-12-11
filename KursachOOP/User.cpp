@@ -25,6 +25,31 @@ string User::getLogin()
     return login;
 }
 
+string User::getPassword()
+{
+    return password;
+}
+
+int User::getAge()
+{
+    return age;
+}
+
+char User::getSex()
+{
+    return sex;
+}
+
+string User::getPhone()
+{
+    return phone;
+}
+
+string User::getEmail()
+{
+    return email;
+}
+
 ostream& operator<<(ostream& out, User& obj)
 {
    return out << setw(12) << obj.login << setw(12) << obj.password << setw(10) << obj.age << setw(5) << obj.sex << setw(15) << obj.phone << setw(15) << obj.email << "\n";

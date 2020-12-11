@@ -1291,9 +1291,12 @@ void userMenu()
 			break;
 
 		case 3:
+		{
+			
 
 			break;
-
+		}
+			
 		case 0:
 			return;
 		}
@@ -1390,30 +1393,36 @@ void userRegistration()
 
 			case 2:
 			{
-				string login;
-				string password;
-				int age;
-				char sex;
-				string phone;
-				string email;
-
 				cout << "Введите логин: ";
+
+				string login;
 				cin >> login;
 
 				cout << "Введите пароль: ";
+
+				string password;
 				cin >> password;
+
 				password = encryptDecrypt(password);
 
 				cout << "Возраст: ";
+
+				int age;
 				cin >> age;
 
 				cout << "Пол: ";
+
+				char sex;
 				cin >> sex;
 
 				cout << "Номер мобильного телефона: ";
+
+				string phone;
 				cin >> phone;
 
 				cout << "Адрес электронной почты: ";
+
+				string email;
 				cin >> email;
 
 				string decrypted = encryptDecrypt(password);
@@ -1632,7 +1641,7 @@ void userManage()
 			cout << "Выберите опцию: " << endl << endl
 				<< "1. Просмотреть данные всех пользователей" << endl
 				<< "2. Просмотреть данные определенного пользователя" << endl
-				<< "3. Удалить данные всех пользователей" << endl << endl
+				<< "3. Добавить нового пользователя" << endl << endl
 				<< "0. Назад" << endl;
 
 			int choice;
@@ -1656,20 +1665,15 @@ void userManage()
 
 					cout << u;
 				}
+
+				break;
 			}
-
-			/*char symbol;
-			while (fs.get(symbol))
-			{
-				cout << symbol;
-			}*/
-
-			break;
 
 			case 2:
 			{
-				string login;
 				cout << "Введите логин пользователя: ";
+
+				string login;
 				cin >> login;
 
 				while (true)
@@ -1689,10 +1693,56 @@ void userManage()
 					}
 
 				}
+
+				break;
 			}
 
+			case 3:
+			{
+				cout << "Введите логин: ";
 
-			break;
+				string login;
+				cin >> login;
+
+				cout << "Введите пароль: ";
+
+				string password;
+				cin >> password;
+
+				password = encryptDecrypt(password);
+
+				cout << "Возраст: ";
+
+				int age;
+				cin >> age;
+
+				cout << "Пол: ";
+
+				char sex;
+				cin >> sex;
+
+				cout << "Номер мобильного телефона: ";
+
+				string phone;
+				cin >> phone;
+
+				cout << "Адрес электронной почты: ";
+
+				string email;
+				cin >> email;
+
+				string decrypted = encryptDecrypt(password);
+
+				system("CLS");
+
+				User user(login, password, age, sex, phone, email);
+
+				fs << user;
+
+				cout << "Успешное добавление нового пользователя" << endl;
+
+				break;
+			}
 
 			case 0:
 				return;
