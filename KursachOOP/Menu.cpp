@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Interface.h"
 
 void Menu::pointOfEntry()
 {
@@ -24,9 +25,10 @@ void Menu::pointOfEntry()
 
 	while (true)
 	{
-		cout << "Âûáåðèòå òèï âõîäà: " << endl
+		cout << "Âûáåðèòå òèï âõîäà: " << endl << endl
 			<< "1. Ïîëüçîâàòåëü" << endl
-			<< "2. Àäìèíèñòðàòîð" << endl;
+			<< "2. Àäìèíèñòðàòîð" << endl << endl
+			<< "0. Âûõîä" << endl;
 
 		int choice;
 		cin >> choice;
@@ -42,12 +44,12 @@ void Menu::pointOfEntry()
 		case 2:
 			if (isAdminAuthorization())
 			{
-				cout << "Âû âîøëè â ñèñòåìó" << endl;
+				cout << "Âû âîøëè â ñèñòåìó" << endl << endl;
 				adminMenu();
 			}
 			else
 			{
-				cout << "Íåâåðíûé ëîãèí èëè ïàðîëü" << endl;
+				cout << "Íåâåðíûé ëîãèí èëè ïàðîëü" << endl << endl;
 			}
 			break;
 
@@ -146,7 +148,6 @@ void Menu::userMenu()
 		case 3:
 		{
 			viewEstate();
-
 			break;
 		}
 
@@ -519,10 +520,12 @@ void Menu::searchEstate()
 		{
 		case 2:
 		{
-			Interface<NewBuilding> object;
-			object.searchData();
+			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
+				<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
+
+			fileName = "NewBuilding.txt";
+			break;
 		}
-		break;
 
 		case 3:
 			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
@@ -745,6 +748,8 @@ void Menu::adminRegistration()
 					cout << obj;
 				}
 
+				cout << endl;
+
 				break;
 			}
 
@@ -801,13 +806,13 @@ void Menu::userManage()
 					cout << obj;
 				}
 
+				cout << endl;
+
 				break;
 			}
 
 			case 2:
 			{
-				cout << setw(12) << "ËÎÃÈÍ" << setw(12) << "ÏÀÐÎËÜ" << setw(10) << "ÂÎÇÐÀÑÒ" << setw(5) << "ÏÎË" << setw(18) << "ÌÎÁ.ÍÎÌÅÐ" << setw(22) << "ÅÌÅÉË" << endl;
-
 				string login;
 				while (true)
 				{
@@ -816,15 +821,17 @@ void Menu::userManage()
 					cout << "Ëîãèí ïîëüçîâàòåëÿ: ";
 
 					cin >> login;
+					system("CLS");
 
 					if (login.length() >= 5 && login.length() <= 12)
 					{
 						break;
 					}
 
-					system("CLS");
 					cout << "Íåêîððåêòíîå çíà÷åíèå. Ïîâòîðèòå ââîä: " << endl;
 				}
+
+				cout << setw(12) << "ËÎÃÈÍ" << setw(12) << "ÏÀÐÎËÜ" << setw(10) << "ÂÎÇÐÀÑÒ" << setw(5) << "ÏÎË" << setw(18) << "ÌÎÁ.ÍÎÌÅÐ" << setw(22) << "ÅÌÅÉË" << endl;
 
 				while (true)
 				{
@@ -843,6 +850,8 @@ void Menu::userManage()
 					}
 
 				}
+
+				cout << endl;
 
 				break;
 			}

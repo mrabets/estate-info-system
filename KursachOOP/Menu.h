@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Interface.h"
+#include "Admin.h"
+#include "User.h"
 
 #include <iostream>
 #include <fstream>

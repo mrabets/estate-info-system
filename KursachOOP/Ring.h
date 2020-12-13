@@ -390,6 +390,8 @@ void Ring<T>::saveDataToFileBase(string fileName)
 				}
 
 				fs << current->data;
+
+				cout << "Данные успешно добавлены в базу данных" << endl << endl;
 			}
 
 			fs.close();
@@ -421,6 +423,8 @@ void Ring<T>::saveDataToFileBase(string fileName)
 				}
 
 				fs << current->data;
+
+				cout << "Данные успешно перезаписаны в базу данных" << endl << endl;
 			}
 
 			fs.close();
@@ -441,6 +445,8 @@ void Ring<T>::saveDataToFileBase(string fileName)
 				}
 
 				addToEnd(object);
+
+				cout << "Данные успешно извлечены их базы данных" << endl << endl;
 			}
 
 			fs.close();
@@ -476,47 +482,34 @@ void Ring<T>::saveDataToFileBase(string fileName)
 	}
 }
 
-template<class T>
-void Ring<T>::saveDataToFile()
-{
-	string fileName = "info.txt";
-
-	saveDataToFileBase(fileName);
-}
-
 template<>
 void Ring<NewBuilding>::saveDataToFile()
 {
-	string fileName = "NewBuilding.txt";
-	saveDataToFileBase(fileName);
+	saveDataToFileBase("NewBuilding.txt");
 }
 
 template<>
 void Ring<SecondaryHousing>::saveDataToFile()
 {
-	string fileName = "SecondaryHousing.txt";
-	saveDataToFileBase(fileName);
+	saveDataToFileBase("SecondaryHousing.txt");
 }
 
 template<>
 void Ring<Cottage>::saveDataToFile()
 {
-	string fileName = "Cottage.txt";
-	saveDataToFileBase(fileName);
+	saveDataToFileBase("Cottage.txt");
 }
 
 template<>
 void Ring<Country>::saveDataToFile()
 {
-	string fileName = "Country.txt";
-	saveDataToFileBase(fileName);
+	saveDataToFileBase("Country.txt");
 }
 
 template<>
 void Ring<Ground>::saveDataToFile()
 {
-	string fileName = "Ground.txt";
-	saveDataToFileBase(fileName);
+	saveDataToFileBase("Ground.txt");
 }
 
 template<>
@@ -572,7 +565,7 @@ void Ring<NewBuilding>::changeData(int index)
 		case 3:
 		{
 			cout << "Введите новую цену: ";
-			int newPrice;
+			float newPrice;
 			cin >> newPrice;
 			current->data.setPrice(newPrice);
 			return;
@@ -682,7 +675,7 @@ void Ring<SecondaryHousing>::changeData(int index)
 		case 3:
 		{
 			cout << "Введите новую цену: ";
-			int newPrice;
+			float newPrice;
 			cin >> newPrice;
 			current->data.setPrice(newPrice);
 			return;
@@ -791,7 +784,7 @@ void Ring<Cottage>::changeData(int index)
 		case 3:
 		{
 			cout << "Введите новую цену: ";
-			int newPrice;
+			float newPrice;
 			cin >> newPrice;
 			current->data.setPrice(newPrice);
 			return;
@@ -891,7 +884,7 @@ void Ring<Country>::changeData(int index)
 		case 3:
 		{
 			cout << "Введите новую цену: ";
-			int newPrice;
+			float newPrice;
 			cin >> newPrice;
 			current->data.setPrice(newPrice);
 			return;
@@ -988,7 +981,7 @@ void Ring<Ground>::changeData(int index)
 		case 3:
 		{
 			cout << "Введите новую цену: ";
-			int newPrice;
+			float newPrice;
 			cin >> newPrice;
 			current->data.setPrice(newPrice);
 			return;
