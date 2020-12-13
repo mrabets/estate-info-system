@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 
 using namespace std;
@@ -10,9 +11,6 @@ class User
 public:
 	User();
 	User(string login, string password, int age, char sex, string phone, string email);
-
-	void registerUser();
-
 
 	string getLogin();
 	string getPassword();

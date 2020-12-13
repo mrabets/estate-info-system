@@ -52,7 +52,7 @@ string User::getEmail()
 
 ostream& operator<<(ostream& out, User& obj)
 {
-   return out << setw(12) << obj.login << setw(12) << obj.password << setw(10) << obj.age << setw(5) << obj.sex << setw(15) << obj.phone << setw(15) << obj.email << "\n";
+   return out << setw(12) << obj.login << setw(12) << obj.password << setw(10) << obj.age << setw(5) << obj.sex << setw(18) << obj.phone << setw(22) << obj.email << "\n";
 }
 
 istream& operator>>(istream& in, User& obj)
