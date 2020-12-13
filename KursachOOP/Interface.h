@@ -1052,6 +1052,7 @@ void typeChoosing()
 	}
 }
 
+
 void pointOfEntry()
 {
 	ifstream fin;
@@ -1292,7 +1293,7 @@ void userMenu()
 
 		case 3:
 		{
-			
+			viewEstate();
 
 			break;
 		}
@@ -1451,7 +1452,7 @@ void userFileCreating()
 {
 	ofstream fout;
 
-	fout.open("user.txt");
+	fout.open("User.txt");
 
 	if (!fout.is_open())
 	{
@@ -1552,7 +1553,7 @@ void adminRegistration()
 	fstream fs;
 	while (true)
 	{
-		fs.open("admin.txt", fstream::in | fstream::out | fstream::app);
+		fs.open("Admin.txt", fstream::in | fstream::out | fstream::app);
 
 		if (!fs.is_open())
 		{
@@ -1574,37 +1575,39 @@ void adminRegistration()
 			{
 			case 1:
 			{
-				string login;
-				string password;
-
 				cout << "Введите логин: ";
+
+				string login;
 				cin >> login;
 
 				cout << "Введите пароль: ";
+
+				string password;
 				cin >> password;
 
 				string encrypted = encryptDecrypt(password);
 
 				fs << setw(10) << login << setw(10) << encrypted << "\n";
-			}
-			break;
+
+				break;
+			}		
 
 			case 2:
-			{
-				string view;
+			{	
 				cout << setw(10) << "Логин" << setw(10) << "Пароль" << endl;
 
+				string temp;
 				while (!fs.eof())
 				{
-					view = "";
+					temp = "";
 
-					fs >> view;
-					cout << setw(10) << view;
+					fs >> temp;
+					cout << setw(10) << temp;
 
-					view = "";
+					temp = "";
 
-					fs >> view;
-					cout << setw(10) << view;
+					fs >> temp;
+					cout << setw(10) << temp;
 
 					cout << endl;
 				}
@@ -1630,7 +1633,7 @@ void userManage()
 	fstream fs;
 	while (true)
 	{
-		fs.open("user.txt", fstream::in | fstream::out | fstream::app);
+		fs.open("User.txt", fstream::in | fstream::out | fstream::app);
 
 		if (!fs.is_open())
 		{
@@ -1655,15 +1658,15 @@ void userManage()
 			{
 				while (true)
 				{
-					User u;
-					fs >> u;
+					User obj;
+					fs >> obj;
 
 					if (fs.eof())
 					{
 						break;
 					}
 
-					cout << u;
+					cout << obj;
 				}
 
 				break;
@@ -1678,17 +1681,17 @@ void userManage()
 
 				while (true)
 				{
-					User u;
-					fs >> u;
+					User obj;
+					fs >> obj;
 
 					if (fs.eof())
 					{
 						break;
 					}
 
-					if (u.getLogin() == login)
+					if (obj.getLogin() == login)
 					{
-						cout << u;
+						cout << obj;
 						break;
 					}
 
@@ -1711,27 +1714,111 @@ void userManage()
 
 				password = encryptDecrypt(password);
 
-				cout << "Возраст: ";
-
 				int age;
-				cin >> age;
+				while (true)
+				{
+					cin.clear();
 
-				cout << "Пол: ";
+					cout << "Возраст: ";
+
+					cin >> age;
+
+					if (age >= 18 && age <= 120)
+					{
+						break;
+					}
+
+					system("CLS");
+					cout << "Некорректное значение. Повторите ввод: " << endl;
+				}
 
 				char sex;
-				cin >> sex;
+				while (true)
+				{
+					cin.clear();
 
-				cout << "Номер мобильного телефона: ";
+					cout << "Пол (М - мужской, Ж - женский): ";
+
+					cin >> sex;
+
+					if (sex == 'М' || sex == 'Ж' || sex == 'м' || sex == 'ж')
+					{
+						break;
+					}
+
+					system("CLS");
+					cout << "Некорректное значение. Повторите ввод: " << endl;
+				}
 
 				string phone;
-				cin >> phone;
 
-				cout << "Адрес электронной почты: ";
+				
 
-				string email;
-				cin >> email;
+				while (true)
+				{
+					cin.clear();
 
-				string decrypted = encryptDecrypt(password);
+					cout << "Номер мобильного телефона (напр. +375257712277): ";
+
+					cin >> phone;
+
+					if (phone.length() != 13 || phone[0] != '+')
+					{
+						system("CLS");
+						cout << "Некорректное значение. Повторите ввод: " << endl;
+					}
+
+					bool isAllDigit = true;
+					for (int i = 1; i < phone.length(); i++)
+					{
+						if (phone[i] < '0' || phone[i] > '9')
+						{
+							isAllDigit = false;
+							break;
+						}
+					}
+
+					if (isAllDigit)
+					{
+						break;
+					}
+
+					system("CLS");
+					cout << "Некорректное значение. Повторите ввод: " << endl;
+				}
+
+				string email;	
+
+				while (true)
+				{
+					cin.clear();
+
+					cout << "Адрес электронной почты: ";
+					cin >> email;
+
+					bool isSign = false;
+					bool isPoint = false;
+					for (int i = 0; i < email.length(); i++)
+					{
+						if (email[i] == '@' && !isSign)
+						{
+							isSign = true;
+						}
+
+						if (email[i] == '.' && i != email.length() - 1 && !isPoint && isSign)
+						{
+							isPoint = true;
+						}
+					}
+
+					if (isSign && isPoint)
+					{
+						break;
+					}
+
+					system("CLS");
+					cout << "Некорректное значение. Повторите ввод: " << endl;
+				}			
 
 				system("CLS");
 
@@ -1757,7 +1844,7 @@ void adminFileCreating()
 {
 	ofstream fout;
 
-	fout.open("admin.txt");
+	fout.open("Admin.txt");
 
 	if (!fout.is_open())
 	{
@@ -1765,8 +1852,6 @@ void adminFileCreating()
 	}
 	else
 	{
-		fout << setw(10) << "ЛОГИН" << setw(10) << "ПАРОЛЬ" << "\n";
-
 		string firstLogin = "admin";
 		string firstPassword = "admin";
 
