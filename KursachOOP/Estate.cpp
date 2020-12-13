@@ -14,6 +14,10 @@ Estate::Estate(string city, string owner, float price)
 	this->price = price;
 }
 
+void Estate::enterData()
+{
+}
+
 string Estate::getCity()
 {
 	return city;

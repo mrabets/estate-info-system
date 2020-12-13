@@ -6,6 +6,7 @@
 #include "Country.h"
 #include "Ground.h"
 #include "Ring.h"
+#include "Estate.h"
 
 template<class T>
 class Interface
@@ -70,7 +71,6 @@ void Interface<T>::service()
 			}
 
 			object.addByIndex(enterData(), index);
-
 			break;
 
 		case 4:
@@ -92,7 +92,6 @@ void Interface<T>::service()
 			}
 
 			object.deleteByIndex(index);
-
 			break;
 
 		case 7:

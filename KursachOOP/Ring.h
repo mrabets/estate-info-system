@@ -229,7 +229,6 @@ void Ring<T>::clear()
 {
 	if (head == nullptr)
 	{
-		cout << "Таблица пуста" << endl;
 		return;
 	}
 
@@ -238,7 +237,7 @@ void Ring<T>::clear()
 		deleteFirst();
 	}
 
-	cout << "Удалено успешно" << endl;
+	cout << "Удалено успешно" << endl << endl;
 }
 
 template<class T>
@@ -265,8 +264,6 @@ void Ring<T>::display()
 {
 	displayBase();
 }
-
-
 
 template<>
 void Ring<NewBuilding>::display()
@@ -342,7 +339,6 @@ void Ring<T>::changeData(int index)
 	}
 }
 
-
 template<class T>
 void Ring<T>::saveDataToFileBase(string fileName)
 {
@@ -350,11 +346,12 @@ void Ring<T>::saveDataToFileBase(string fileName)
 
 	while (true)
 	{
-		cout << "Выберите опцию: " << endl << endl
-			<< "1. Добавить данные в базу данных" << endl
-			<< "2. Перезаписать данные в базу данных" << endl
-			<< "3. Извлечь данные из базы данных" << endl
-			<< "4. Вывести данные из базы данных на экран" << endl
+		cout << "Выберите опцию для работы в базе данных: " << endl << endl
+			<< "1. Добавить данные" << endl
+			<< "2. Перезаписать данные" << endl
+			<< "3. Извлечь данные" << endl
+			<< "4. Вывести данные на экран" << endl
+			<< "5. Удалить данные" << endl << endl
 			<< "0. Назад" << endl;
 
 		int choice;
@@ -395,9 +392,8 @@ void Ring<T>::saveDataToFileBase(string fileName)
 			}
 
 			fs.close();
+			break;
 		}
-
-		break;
 
 		case 2:
 		{
@@ -428,53 +424,73 @@ void Ring<T>::saveDataToFileBase(string fileName)
 			}
 
 			fs.close();
+			break;
 		}
 
 		case 3:
 		{
-			fs.open(fileName, fstream::in | fstream::out | fstream::app);
+			fs.open(fileName, fstream::in);
 
-			while (true)
+			if (!fs.is_open())
 			{
-				T object;
-				fs >> object;
-
-				if (fs.eof())
+				cout << "Ошибка открытия файла" << endl;
+			}
+			else
+			{
+				while (true)
 				{
-					break;
+					T object;
+					fs >> object;
+
+					if (fs.eof())
+					{
+						break;
+					}
+
+					addToEnd(object);
 				}
 
-				addToEnd(object);
-
-				cout << "Данные успешно извлечены их базы данных" << endl << endl;
+				cout << "Данные успешно извлечены из базы данных" << endl << endl;
 			}
 
 			fs.close();
+			break;
 		}
-
-		break;
 
 		case 4:
 		{
-			fs.open(fileName, fstream::in | fstream::out | fstream::app);
+			fs.open(fileName, fstream::in);
 
-			while (true)
+			if (!fs.is_open())
 			{
-				T object;
-				fs >> object;
-
-				if (fs.eof())
+				cout << "Ошибка открытия файла" << endl;
+			}
+			else
+			{
+				while (true)
 				{
-					break;
-				}
+					T object;
+					fs >> object;
 
-				cout << object;
+					if (fs.eof())
+					{
+						break;
+					}
+
+					cout << object;
+				}
 			}
 
 			fs.close();
+			break;
 		}
 
-		break;
+		case 5:
+		{
+			fs.open(fileName, fstream::out | fstream::trunc);
+			fs.close();
+			break;
+		}
 
 		case 0:
 			return;

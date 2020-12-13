@@ -124,7 +124,7 @@ void Menu::userMenu()
 {
 	while (true)
 	{
-		cout << "Выберите опцию: " << endl
+		cout << "Выберите опцию: " << endl << endl
 			<< "1. Просмотреть недвижимость" << endl
 			<< "2. Искать недвижимость по параметрам" << endl
 			<< "3. Купить недвижимость" << endl << endl
@@ -218,9 +218,10 @@ void Menu::userRegistration()
 		}
 		else
 		{
-			cout << "Выберите опцию: " << endl
+			cout << "Выберите опцию: " << endl << endl
 				<< "1. Авторизация" << endl
-				<< "2. Регистрация" << endl;
+				<< "2. Регистрация" << endl << endl
+				<< "0. Назад" << endl;
 
 			int userChoice;
 			cin >> userChoice;
@@ -503,12 +504,11 @@ void Menu::searchEstate()
 		string fileName;
 
 		cout << "Искать в разделе: " << endl << endl
-			<< "1. Всю недвижимость" << endl
-			<< "2. Новостройки" << endl
-			<< "3. Вторички" << endl
-			<< "4. Коттеджи" << endl
-			<< "5. Дачи" << endl
-			<< "6. Участки" << endl << endl
+			<< "1. Новостройки" << endl
+			<< "2. Вторички" << endl
+			<< "3. Коттеджи" << endl
+			<< "4. Дачи" << endl
+			<< "5. Участки" << endl << endl
 			<< "0. Назад" << endl;
 
 		int choice;
@@ -518,7 +518,7 @@ void Menu::searchEstate()
 
 		switch (choice)
 		{
-		case 2:
+		case 1:
 		{
 			cout << setw(20) << "ГОРОД" << setw(20) << "ВЛАДЕЛЕЦ" << setw(10) << "ЦЕНА" << setw(18) << "ЖИЛ. ПЛОЩАДЬ" << setw(18) << "ГОД ПОСТРОЙКИ"
 				<< setw(10) << "ЭТАЖ" << setw(20) << "КОЛ-ВО КОМНАТ" << setw(12) << "ГАРАНТИЯ" << endl;
@@ -527,28 +527,28 @@ void Menu::searchEstate()
 			break;
 		}
 
-		case 3:
+		case 2:
 			cout << setw(20) << "ГОРОД" << setw(20) << "ВЛАДЕЛЕЦ" << setw(10) << "ЦЕНА" << setw(18) << "ЖИЛ. ПЛОЩАДЬ" << setw(18) << "ГОД ПОСТРОЙКИ"
 				<< setw(10) << "ЭТАЖ" << setw(20) << "КОЛ-ВО КОМНАТ" << setw(18) << "ТИП РЕМОНТА" << endl;
 
 			fileName = "SecondaryHousing.txt";
 			break;
 
-		case 4:
+		case 3:
 			cout << setw(20) << "ГОРОД" << setw(20) << "ВЛАДЕЛЕЦ" << setw(10) << "ЦЕНА" << setw(18) << "ЖИЛ. ПЛОЩАДЬ" << setw(18) << "ГОД ПОСТРОЙКИ"
 				<< setw(20) << "КОЛ-ВО ЭТАЖЕЙ" << setw(15) << "ПОСЁЛОК" << endl;
 
 			fileName = "Cottage.txt";
 			break;
 
-		case 5:
+		case 4:
 			cout << setw(20) << "ГОРОД" << setw(20) << "ВЛАДЕЛЕЦ" << setw(10) << "ЦЕНА" << setw(18) << "ЖИЛ. ПЛОЩАДЬ" << setw(18) << "ГОД ПОСТРОЙКИ"
 				<< setw(20) << "КОЛ-ВО ЭТАЖЕЙ" << setw(25) << "РАССТОЯНИЕ ОТ ГОРОДА" << endl;
 
 			fileName = "Country.txt";
 			break;
 
-		case 6:
+		case 5:
 			cout << setw(20) << "ГОРОД" << setw(20) << "ВЛАДЕЛЕЦ" << setw(10) << "ЦЕНА" << setw(20) << "ПЛОЩАДЬ УЧАСТКА" << endl;
 
 			fileName = "Ground.txt";
@@ -570,6 +570,9 @@ void Menu::searchEstate()
 		{
 
 		}
+
+		cout << endl;
+
 		fs.close();
 	}
 }
@@ -661,105 +664,109 @@ void Menu::adminRegistration()
 	fstream fs;
 	while (true)
 	{
-		fs.open("Admin.txt", fstream::in | fstream::out | fstream::app);
+		cout << "Выберите опцию: " << endl << endl
+			<< "1. Зарегистрировать нового администратора" << endl
+			<< "2. Удалить всех администраторов" << endl 
+			<< "3. Посмотреть список всех администраторов" << endl << endl			
+			<< "0. Назад" << endl;
 
-		if (!fs.is_open())
+		int choice;
+		cin >> choice;
+
+		system("CLS");
+
+		switch (choice)
 		{
-			cout << "Ошибка открытия файла" << endl;
-		}
-		else
+		case 1:
 		{
-			cout << "Выберите опцию: " << endl << endl
-				<< "1. Зарегистрировать нового администратора" << endl
-				<< "2. Посмотреть список всех администраторов" << endl << endl
-				<< "0. Назад" << endl;
+			fs.open("Admin.txt", fstream::out | fstream::app);
 
-			int choice;
-			cin >> choice;
-
-			system("CLS");
-
-			switch (choice)
+			string login;
+			while (true)
 			{
-			case 1:
-			{
-				string login;
-				while (true)
+				cin.clear();
+
+				cout << "Логин: ";
+
+				cin >> login;
+
+				if (login.length() >= 5 && login.length() <= 12)
 				{
-					cin.clear();
-
-					cout << "Логин: ";
-
-					cin >> login;
-
-					if (login.length() >= 5 && login.length() <= 12)
-					{
-						break;
-					}
-
-					system("CLS");
-					cout << "Некорректное значение. Повторите ввод: " << endl;
-				}
-
-				string password;
-				while (true)
-				{
-					cin.clear();
-
-					cout << "Пароль: ";
-
-					cin >> password;
-
-					if (password.length() >= 5 && password.length() <= 12)
-					{
-						password = encryptDecrypt(password);
-						break;
-					}
-
-					system("CLS");
-					cout << "Некорректное значение. Повторите ввод: " << endl;
+					break;
 				}
 
 				system("CLS");
-
-				Admin admin(login, password);
-
-				fs << admin;
-
-				cout << "Успешное добавление нового администратора" << endl;
-
-				break;
+				cout << "Некорректное значение. Повторите ввод: " << endl;
 			}
 
-			case 2:
+			string password;
+			while (true)
 			{
-				cout << setw(12) << "ЛОГИН" << setw(12) << "ПАРОЛЬ" << endl;
+				cin.clear();
 
-				while (true)
+				cout << "Пароль: ";
+
+				cin >> password;
+
+				if (password.length() >= 5 && password.length() <= 12)
 				{
-					Admin obj;
-					fs >> obj;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					cout << obj;
+					password = encryptDecrypt(password);
+					break;
 				}
 
-				cout << endl;
-
-				break;
+				system("CLS");
+				cout << "Некорректное значение. Повторите ввод: " << endl;
 			}
 
-			case 0:
-				return;
-			}
+			system("CLS");
+
+			Admin admin(login, password);
+
+			fs << admin;
+
+			cout << "Успешное добавление нового администратора" << endl;
 
 			fs.close();
+			break;
 		}
 
+		case 2:
+		{
+			adminFileCreating();
+
+			cout << "Удалено успешно" << endl;
+
+			break;
+		}
+
+		case 3:
+		{
+			fs.open("Admin.txt", fstream::in);
+
+			cout << setw(12) << "ЛОГИН" << setw(12) << "ПАРОЛЬ" << endl;
+
+			while (true)
+			{
+				Admin obj;
+				fs >> obj;
+
+				if (fs.eof())
+				{
+					break;
+				}
+
+				cout << obj;
+			}
+
+			cout << endl;
+
+			fs.close();
+			break;
+		}
+
+		case 0:
+			return;
+		}
 	}
 }
 
@@ -779,7 +786,8 @@ void Menu::userManage()
 			cout << "Выберите опцию: " << endl << endl
 				<< "1. Просмотреть данные всех пользователей" << endl
 				<< "2. Просмотреть данные определенного пользователя" << endl
-				<< "3. Добавить нового пользователя" << endl << endl
+				<< "3. Добавить нового пользователя" << endl
+				<< "4. Удалить всех пользователей" << endl << endl
 				<< "0. Назад" << endl;
 
 			int choice;
@@ -1007,6 +1015,15 @@ void Menu::userManage()
 
 				break;
 			}
+
+			case 4:
+			{
+				userFileCreating();
+
+				cout << "Удалено успешно" << endl;
+
+				break;
+			}	
 
 			case 0:
 				return;
