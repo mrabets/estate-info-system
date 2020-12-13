@@ -11,6 +11,27 @@ Ground::Ground(float landSquare, string city, string owner, float price)
     this->landSquare = landSquare;
 }
 
+void Ground::enterData()
+{
+	Estate::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите площадь земельного участка (в квадратных метрах): ";
+		cin >> landSquare;
+
+		if (landSquare >= 0.1 && landSquare <= 200.0)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 float Ground::getLandSquare()
 {
     return landSquare;

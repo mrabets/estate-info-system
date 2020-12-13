@@ -11,6 +11,37 @@ Cottage::Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int 
     this->nameOfVillage = nameOfVillage;
 }
 
+void Cottage::enterData()
+{
+	House::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите название посёлка: ";
+		cin >> nameOfVillage;
+
+		bool isIncorrectSymbol = false;
+		for (int i = 0; i < nameOfVillage.length(); i++)
+		{
+			if (!(nameOfVillage[i] >= 'А' && nameOfVillage[i] <= 'я'))
+			{
+				isIncorrectSymbol = true;
+				break;
+			}
+		}
+
+		if (!isIncorrectSymbol)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 string Cottage::getNameOfVillage()
 {
     return nameOfVillage;

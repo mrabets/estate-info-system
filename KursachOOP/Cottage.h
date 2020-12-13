@@ -6,6 +6,8 @@ public:
 	Cottage();
 	Cottage(string nameOfVillage, int floorsAmount, float livingSpace, int yearBuilt, string city, string owner, float price);
 
+	void enterData() override;
+
 	string getNameOfVillage();
 	void setNameOfVillage(string nameOfVillage);
 

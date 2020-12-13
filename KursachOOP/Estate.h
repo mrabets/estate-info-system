@@ -11,7 +11,7 @@ public:
 	Estate(string address, string owner, float price);
 	virtual ~Estate() = default;
 
-	void enterData();
+	virtual void enterData();
 
 	string getCity();
 	string getOwner();

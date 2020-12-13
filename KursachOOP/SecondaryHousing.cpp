@@ -11,6 +11,37 @@ SecondaryHousing::SecondaryHousing(string city, string owner, float price, float
     this->typeOfRepair = typeOfRepair;
 }
 
+void SecondaryHousing::enterData()
+{
+	Apartment::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите тип ремонта (напр. Евроремонт): ";
+		cin >> typeOfRepair;
+
+		bool isIncorrectSymbol = false;
+		for (int i = 0; i < typeOfRepair.length(); i++)
+		{
+			if (typeOfRepair[i] >= '0' && typeOfRepair[i] <= '9')
+			{
+				isIncorrectSymbol = true;
+				break;
+			}
+		}
+
+		if (!isIncorrectSymbol)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 string SecondaryHousing::getTypeOfRepair()
 {
     return typeOfRepair;

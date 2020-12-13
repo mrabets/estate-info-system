@@ -11,6 +11,27 @@ NewBuilding::NewBuilding(int warranty, int roomsAmount, int floor, float livingS
     this->warranty = warranty;
 }
 
+void NewBuilding::enterData()
+{
+	Apartment::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите гарантия (лет): ";
+		cin >> warranty;
+
+		if (warranty >= 0 && warranty <= 20)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 int NewBuilding::getWarranty()
 {
     return warranty;

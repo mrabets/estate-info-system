@@ -7,6 +7,8 @@ public:
 	NewBuilding();
 	NewBuilding(int warranty, int roomsAmount, int floor, float livingSpace, int yearBuilt, string city, string owner, float price);
 
+	void enterData() override;
+
 	int getWarranty();
 	void setWarranty(int warranty);
 

@@ -6,6 +6,8 @@ public:
 	SecondaryHousing();
 	SecondaryHousing(string city, string owner, float price, float livingSpace, int yearBuilt, int roomsAmount, int floor, string typeOfRepair);
 
+	void enterData() override;
+
 	string getTypeOfRepair();
 	void setTypeOfRepair(string typeOfRepair);
 

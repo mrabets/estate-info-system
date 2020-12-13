@@ -7,6 +7,8 @@ public:
 	Building(float livingSpace, int yearBuilt, string address, string owner, float price);
 	virtual ~Building() = default;
 
+	void enterData() override;
+
 	float getLivingSpace();
 	int getYearBuilt();
 

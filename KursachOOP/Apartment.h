@@ -8,6 +8,8 @@ public:
 	Apartment(int roomsAmount, int floor, float livingSpace, int yearBuilt, string address, string owner, float price);
 	virtual ~Apartment() = default;
 
+	void enterData() override;
+
 	int getRoomsAmount();
 	int getFloor();
 

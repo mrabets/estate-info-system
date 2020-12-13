@@ -15,6 +15,43 @@ Apartment::Apartment(int roomsAmount, int floor, float livingSpace, int yearBuil
     this->floor = floor;
 }
 
+void Apartment::enterData()
+{
+	Building::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите этаж: ";
+		cin >> floor;
+
+		if (floor >= 1 && floor <= 150)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите количество комнат: ";
+		cin >> roomsAmount;
+
+		if (roomsAmount >= 1 && roomsAmount <= 50)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 int Apartment::getRoomsAmount()
 {
     return this->roomsAmount;

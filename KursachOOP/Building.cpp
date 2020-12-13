@@ -12,6 +12,43 @@ Building::Building(float livingSpace, int yearBuilt, string city, string owner, 
     this->yearBuilt = yearBuilt;
 }
 
+void Building::enterData()
+{
+	Estate::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите жилую площадь (в квадратных метрах): ";
+		cin >> livingSpace;
+
+		if (livingSpace >= 1.0 && livingSpace <= 200.0)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите год постройки: ";
+		cin >> yearBuilt;
+
+		if (yearBuilt >= 1600 && yearBuilt <= 2021)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 float Building::getLivingSpace()
 {
     return this->livingSpace;

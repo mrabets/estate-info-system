@@ -11,6 +11,27 @@ Country::Country(int distanceFromCity, int floorsAmount, float livingSpace, int 
     this->distanceFromCity = distanceFromCity;
 }
 
+void Country::enterData()
+{
+	House::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите название посёлка: ";
+		cin >> distanceFromCity;
+
+		if (distanceFromCity >= 1 && distanceFromCity <= 50)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 int Country::getDistanceFromCity()
 {
     return distanceFromCity;

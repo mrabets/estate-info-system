@@ -9,6 +9,8 @@ public:
 	House(int floorsAmount, float livingSpace, int yearBuilt, string address, string owner, float price);
 	virtual ~House() = default;
 
+	void enterData() override;
+
 	int getFloorsAmount();
 	void setFloorsAmount(int floorsAmount);
 

@@ -16,6 +16,63 @@ Estate::Estate(string city, string owner, float price)
 
 void Estate::enterData()
 {
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите город (напр. Минск): ";
+		cin >> city;
+
+		bool isIncorrectSymbol = false;
+		for (int i = 0; i < city.length(); i++)
+		{
+			if (!(city[i] >= 'А' && city[i] <= 'я'))
+			{
+				isIncorrectSymbol = true;
+				break;
+			}
+		}
+
+		if (!isIncorrectSymbol)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите владельца (напр. Новострой): ";
+		cin >> owner;
+
+		if (owner.length() >= 2 && owner.length() <= 12)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите цену (в долларах): ";
+		cin >> price;
+
+		if (price >= 100.0 && price <= 10000000.0)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
 }
 
 string Estate::getCity()

@@ -11,6 +11,27 @@ House::House(int floorsAmount, float livingSpace, int yearBuilt, string address,
     this->floorsAmount = floorsAmount;
 }
 
+void House::enterData()
+{
+	Building::enterData();
+
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Введите количество этажей: ";
+		cin >> floorsAmount;
+
+		if (floorsAmount >= 1 && floorsAmount <= 50)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
+}
+
 int House::getFloorsAmount()
 {
     return floorsAmount;
