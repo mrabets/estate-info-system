@@ -486,7 +486,11 @@ void Menu::viewEstateFile()
 		}
 		else
 		{
-			
+			char ch;
+			while (fs.get(ch))
+			{
+				cout << ch;
+			}
 		}
 	}
 }
@@ -495,8 +499,6 @@ void Menu::searchEstateFile()
 {
 	while (true)
 	{
-		string fileName;
-
 		cout << "Ïðîñìîòðåòü: " << endl << endl
 			<< "1. Íîâîñòðîéêè" << endl
 			<< "2. Âòîðè÷êè" << endl
@@ -514,61 +516,43 @@ void Menu::searchEstateFile()
 		{
 		case 1:
 		{
-			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-				<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
-
-			fileName = "NewBuilding.txt";
-			NewBuilding object;
 			Interface<NewBuilding> interface;
-			interface.searchDataInFile(fileName, &object);
+			interface.searchDataInFile();
 			break;
 		}
 			
 		case 2:
-			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-				<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
-
-			fileName = "SecondaryHousing.txt";
+		{
+			Interface<SecondaryHousing> interface;
+			interface.searchDataInFile();
 			break;
+		}		
 
 		case 3:
-			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-				<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
-
-			fileName = "Cottage.txt";
+		{
+			Interface<Cottage> interface;
+			interface.searchDataInFile();
 			break;
+		}
 
 		case 4:
-			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-				<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
-
-			fileName = "Country.txt";
+		{
+			Interface<Country> interface;
+			interface.searchDataInFile();
 			break;
+		}
 
 		case 5:
-			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
-
-			fileName = "Ground.txt";
+		{
+			Interface<Ground> interface;
+			interface.searchDataInFile();
 			break;
-
+		}
+			
 		case 0:
 			return;
 		}
-
-		fstream fs;
-
-		fs.open(fileName, fstream::in);
-
-		if (!fs.is_open())
-		{
-			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
-		}
-		else
-		{
-
-		}
-	}
-		
+	}		
 }
 
 void Menu::adminMenu()
