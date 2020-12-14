@@ -138,16 +138,16 @@ void Menu::userMenu()
 		switch (choice)
 		{
 		case 1:
-			viewEstate();
+			viewEstateFile();
 			break;
 
 		case 2:
-			searchEstate();
+			searchEstateFile();
 			break;
 
 		case 3:
 		{
-			viewEstate();
+			viewEstateFile();
 			break;
 		}
 
@@ -205,7 +205,6 @@ bool Menu::isUserAuthorization()
 
 void Menu::userRegistration()
 {
-	
 	fstream fs;
 
 	while (true)
@@ -418,7 +417,7 @@ void Menu::userFileCreating()
 	fout.close();
 }
 
-void Menu::viewEstate()
+void Menu::viewEstateFile()
 {
 	while (true)
 	{
@@ -483,27 +482,22 @@ void Menu::viewEstate()
 
 		if (!fs.is_open())
 		{
-			cout << "Äàííûé òèï íåäâèæèìîñòè îòñóòñâóåò â êàòàëîãå" << endl;
+			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
 		}
 		else
 		{
-			char ch;
-			while (fs.get(ch))
-			{
-				cout << ch;
-			}
+			
 		}
-		fs.close();
 	}
 }
 
-void Menu::searchEstate()
+void Menu::searchEstateFile()
 {
 	while (true)
 	{
 		string fileName;
 
-		cout << "Èñêàòü â ðàçäåëå: " << endl << endl
+		cout << "Ïðîñìîòðåòü: " << endl << endl
 			<< "1. Íîâîñòðîéêè" << endl
 			<< "2. Âòîðè÷êè" << endl
 			<< "3. Êîòòåäæè" << endl
@@ -524,9 +518,12 @@ void Menu::searchEstate()
 				<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
 
 			fileName = "NewBuilding.txt";
+			NewBuilding object;
+			Interface<NewBuilding> interface;
+			interface.searchDataInFile(fileName, &object);
 			break;
 		}
-
+			
 		case 2:
 			cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
 				<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
@@ -562,19 +559,16 @@ void Menu::searchEstate()
 
 		fs.open(fileName, fstream::in);
 
-		if (fs.is_open())
+		if (!fs.is_open())
 		{
-			cout << "Äàííûé òèï íåäâèæèìîñòè îòñóòñâóåò â êàòàëîãå" << endl;
+			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
 		}
 		else
 		{
 
 		}
-
-		cout << endl;
-
-		fs.close();
 	}
+		
 }
 
 void Menu::adminMenu()

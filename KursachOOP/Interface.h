@@ -16,10 +16,12 @@ public:
 	~Interface() {};
 
 	void service();
-
-	T enterData();
-
 	void searchData();
+
+	void searchDataInFile(string fileName);
+
+private:
+	void enterData(T* data);	
 };
 
 template <class T>
@@ -53,11 +55,13 @@ void Interface<T>::service()
 		switch (choiceMenu)
 		{
 		case 1:
-			object.addToBegin(enterData());
+			enterData(&value);
+			object.addToBegin(value);
 			break;
 
 		case 2:
-			object.addToEnd(enterData());
+			enterData(&value);
+			object.addToEnd(value);
 			break;
 
 		case 3:
@@ -70,7 +74,8 @@ void Interface<T>::service()
 				break;
 			}
 
-			object.addByIndex(enterData(), index);
+			enterData(&value);
+			object.addByIndex(value, index);
 			break;
 
 		case 4:
@@ -117,7 +122,7 @@ void Interface<T>::service()
 			break;
 
 		case 10:
-			object.saveDataToFile();
+			object.fileService();
 			break;
 
 		case 0:
@@ -129,53 +134,13 @@ void Interface<T>::service()
 }
 
 template<>
-NewBuilding Interface<NewBuilding>::enterData()
-{
-	NewBuilding object;
-	object.enterData();
-	return object;
-}
-
-template<>
-SecondaryHousing Interface<SecondaryHousing>::enterData()
-{
-	SecondaryHousing object;
-	object.enterData();
-	return object;
-}
-
-template<>
-Cottage Interface<Cottage>::enterData()
-{
-	Cottage object;
-	object.enterData();
-	return object;
-}
-
-template<>
-Country Interface<Country>::enterData()
-{
-	Country object;
-	object.enterData();
-	return object;
-}
-
-template<>
-Ground Interface<Ground>::enterData()
-{
-	Ground object;
-	object.enterData();
-	return object;
-}
-
-template<>
-void Interface<NewBuilding>::searchData()
+void Interface<NewBuilding>::searchDataInFile(string fileName)
 {
 	fstream fs;
 
 	while (true)
 	{
-		fs.open("NewBuilding.txt", fstream::in | fstream::app);
+		fs.open(fileName, fstream::in);
 
 		if (!fs.is_open())
 		{
@@ -183,277 +148,17 @@ void Interface<NewBuilding>::searchData()
 		}
 		else
 		{
-			cout << "Èñêàòü ïî: " << endl << endl
-				<< "1. Ãîðîäó" << endl
-				<< "2. Öåíå" << endl
-				<< "3. Êîëè÷åñòâó êîìíàò" << endl << endl
-				<< "0. Íàçàä" << endl;
 
-			int choice;
-			cin >> choice;
 
-			system("CLS");
-
-			switch (choice)
-			{
-			case 1:
-			{
-				string city;
-				cout << "Ââåäèòå ãîðîä: ";
-				cin >> city;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
-
-				while (true)
-				{
-					NewBuilding object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getCity() == city)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
-
-			case 2:
-			{
-				int minPrice;
-				int maxPrice;
-
-				cout << "Ââåäèòå ìèíèìàëüíóþ öåíó: ";
-				cin >> minPrice;
-
-				cout << "Ââåäèòå ìàêñèìàëüíóþ öåíó: ";
-				cin >> maxPrice;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
-
-				while (true)
-				{
-					NewBuilding object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getPrice() >= minPrice && object.getPrice() <= maxPrice)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 3:
-			{
-				int roomsAmount;
-				cout << "Ââåäèòå êîëè÷åñòâî êîìíàò: ";
-				cin >> roomsAmount;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(12) << "ÃÀÐÀÍÒÈß" << endl;
-
-				while (true)
-				{
-					NewBuilding object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getRoomsAmount() == roomsAmount)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 0:
-				return;
-			}
-
-			fs.close();
-		}
-	}
-}
-
-template<>
-void Interface<SecondaryHousing>::searchData()
-{
-	fstream fs;
-
-	while (true)
-	{
-		fs.open("SecondaryHousing.txt", fstream::in | fstream::app);
-
-		if (!fs.is_open())
-		{
-			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
-		}
-		else
-		{
-			cout << "Èñêàòü ïî: " << endl << endl
-				<< "1. Ãîðîäó" << endl
-				<< "2. Ýòàæ" << endl
-				<< "3. Æèëàÿ ïëîùàäü" << endl << endl
-				<< "0. Íàçàä" << endl;
-
-			int choice;
-			cin >> choice;
-
-			system("CLS");
-
-			switch (choice)
-			{
-			case 1:
-			{
-				string city;
-				cout << "Ââåäèòå ãîðîä: ";
-				cin >> city;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
-
-				while (true)
-				{
-					SecondaryHousing object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getCity() == city)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
-
-			case 2:
-			{
-				int floor;
-				cout << "Ââåäèòå ãîðîä: ";
-				cin >> floor;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
-
-				while (true)
-				{
-					SecondaryHousing object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getFloor() == floor)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
-
-			case 3:
-			{
-				float minLivingSpace;
-				float maxLivingSpace;
-
-				cout << "Ââåäèòå ìèíèìàëüíóþ æèëóþ ïëîùàäü: ";
-				cin >> minLivingSpace;
-
-				cout << "Ââåäèòå ìàêñèìàëüíóþ æèëóþ ïëîùàäü: ";
-				cin >> maxLivingSpace;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(10) << "ÝÒÀÆ" << setw(20) << "ÊÎË-ÂÎ ÊÎÌÍÀÒ" << setw(18) << "ÒÈÏ ÐÅÌÎÍÒÀ" << endl;
-
-				while (true)
-				{
-					SecondaryHousing object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getLivingSpace() <= maxLivingSpace && object.getLivingSpace() >= minLivingSpace)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 0:
-				return;
-			}
-
-			fs.close();
-		}
-	}
-}
-
-template<>
-void Interface<Cottage>::searchData()
-{
-	fstream fs;
-
-	while (true)
-	{
-		fs.open("Cottage.txt", fstream::in | fstream::app);
-
-		if (!fs.is_open())
-		{
-			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
-		}
-		else
-		{
-			cout << "Èñêàòü ïî: " << endl << endl
+			cout << "Âûáåðåòèå ïàðàìåòð:" << endl
 				<< "1. Ãîðîä" << endl
-				<< "2. Ïîñ¸ëîê" << endl
-				<< "3. Êîëè÷åñòâî ýòàæåé" << endl << endl
+				<< "2. Âëàäåëåö" << endl
+				<< "3. Öåíà" << endl
+				<< "4. Æèëàÿ ïëîùàäü" << endl
+				<< "5. Ãîä ïîñòðîéêè" << endl
+				<< "6. Êîë-âî êîìíàò" << endl
+				<< "7. Ýòàæ" << endl
+				<< "8. Ãàðàíòèÿ" << endl << endl
 				<< "0. Íàçàä" << endl;
 
 			int choice;
@@ -464,19 +169,10 @@ void Interface<Cottage>::searchData()
 			switch (choice)
 			{
 			case 1:
-			{
-				string city;
-				cout << "Ââåäèòå ãîðîä: ";
-				cin >> city;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
-
 				while (true)
 				{
-					Cottage object;
+					NewBuilding object;
+
 					fs >> object;
 
 					if (fs.eof())
@@ -484,350 +180,54 @@ void Interface<Cottage>::searchData()
 						break;
 					}
 
-					if (object.getCity() == city)
+					if ()
 					{
 						cout << object;
 					}
-				}
 
-				cout << endl;
-			}
-			break;
+				}
+				break;
 
 			case 2:
-			{
-				string nameOfVillage;
-				cout << "Ââåäèòå íàçâàíèå ïîñ¸ëêà: ";
-				cin >> nameOfVillage;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
-
-				while (true)
-				{
-					Cottage object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getNameOfVillage() == nameOfVillage)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
+				break;
 
 			case 3:
-			{
-				int floorsAmount;
-				cout << "Ââåäèòå êîëè÷åñòâî ýòàæåé: ";
-				cin >> floorsAmount;
+				break;
 
-				system("CLS");
+			case 4:
+				break;
 
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(15) << "ÏÎÑ¨ËÎÊ" << endl;
+			case 5:
+				break;
 
-				while (true)
-				{
-					Cottage object;
-					fs >> object;
+			case 6:
+				break;
 
-					if (fs.eof())
-					{
-						break;
-					}
+			case 7:
+				break;
 
-					if (object.getFloorsAmount() == floorsAmount)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
+			case 8:
+				break;
 
 			case 0:
 				return;
 			}
-
-			fs.close();
 		}
+
+		fs.close();
 	}
+
+	
 }
 
-template<>
-void Interface<Country>::searchData()
+template<class T>
+void Interface<T>::searchData()
 {
-	fstream fs;
 
-	while (true)
-	{
-		fs.open("Country.txt", fstream::in | fstream::app);
-
-		if (!fs.is_open())
-		{
-			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
-		}
-		else
-		{
-			cout << "Èñêàòü ïî: " << endl << endl
-				<< "1. Ðàññòîÿíèå îò ãîðîäà" << endl
-				<< "2. Öåíà" << endl
-				<< "3. Ãîä ïîñòðîéêè" << endl << endl
-				<< "0. Íàçàä" << endl;
-
-			int choice;
-			cin >> choice;
-
-			system("CLS");
-
-			switch (choice)
-			{
-			case 1:
-			{
-				int distanceFromCity;
-				cout << "Ââåäèòå ìàêñèìàëüíîå ðàññòÿîíèå îò ãîðîäà: ";
-				cin >> distanceFromCity;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
-
-				while (true)
-				{
-					Country object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getDistanceFromCity() <= distanceFromCity)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
-
-			case 2:
-			{
-				int minPrice;
-				int maxPrice;
-
-				cout << "Ââåäèòå ìèíèìàëüíóþ öåíó: ";
-				cin >> minPrice;
-
-				cout << "Ââåäèòå ìàêñèìàëüíóþ öåíó: ";
-				cin >> maxPrice;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
-
-				while (true)
-				{
-					Country object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getPrice() >= minPrice && object.getPrice() <= maxPrice)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 3:
-			{
-				int yearBuilt;
-				cout << "Ââåäèòå ãîä ïîñòðîéêè: ";
-				cin >> yearBuilt;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(18) << "ÆÈË. ÏËÎÙÀÄÜ" << setw(18) << "ÃÎÄ ÏÎÑÒÐÎÉÊÈ"
-					<< setw(20) << "ÊÎË-ÂÎ ÝÒÀÆÅÉ" << setw(25) << "ÐÀÑÑÒÎßÍÈÅ ÎÒ ÃÎÐÎÄÀ" << endl;
-
-				while (true)
-				{
-					Country object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getYearBuilt() == yearBuilt)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 0:
-				return;
-			}
-
-			fs.close();
-		}
-	}
 }
 
-template<>
-void Interface<Ground>::searchData()
+template<class T>
+void Interface<T>::enterData(T* object)
 {
-	fstream fs;
-
-	while (true)
-	{
-		fs.open("Ground.txt", fstream::in | fstream::app);
-
-		if (!fs.is_open())
-		{
-			cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
-		}
-		else
-		{
-			cout << "Èñêàòü ïî: " << endl << endl
-				<< "1. Ïëîùàäü çåìåëüíîãî ó÷àñòêà" << endl
-				<< "2. Öåíà" << endl
-				<< "3. Ãîðîä" << endl << endl
-				<< "0. Íàçàä" << endl;
-
-			int choice;
-			cin >> choice;
-
-			system("CLS");
-
-			switch (choice)
-			{
-			case 1:
-			{
-				float minLandSquare;
-				float maxLandSquare;
-
-				cout << "Ââåäèòå ìèíèìàëüíóþ ïëîùàäü çåìåëüíîãî ó÷àñòêà: ";
-				cin >> minLandSquare;
-
-				cout << "Ââåäèòå ìàêñèìàëüíóþ ïëîùàäü çåìåëüíîãî ó÷àñòêà: ";
-				cin >> maxLandSquare;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
-
-				while (true)
-				{
-					Ground object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getLandSquare() <= maxLandSquare && object.getLandSquare() >= minLandSquare)
-					{
-						cout << object;
-					}
-				}
-
-				cout << endl;
-			}
-			break;
-
-			case 2:
-			{
-				int minPrice;
-				int maxPrice;
-
-				cout << "Ââåäèòå ìèíèìàëüíóþ öåíó: ";
-				cin >> minPrice;
-
-				cout << "Ââåäèòå ìàêñèìàëüíóþ öåíó: ";
-				cin >> maxPrice;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
-
-				while (true)
-				{
-					Ground object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getPrice() >= minPrice && object.getPrice() <= maxPrice)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 3:
-			{
-				string city;
-				cout << "Ââåäèòå ãîðîä: ";
-				cin >> city;
-
-				system("CLS");
-
-				cout << setw(20) << "ÃÎÐÎÄ" << setw(20) << "ÂËÀÄÅËÅÖ" << setw(10) << "ÖÅÍÀ" << setw(20) << "ÏËÎÙÀÄÜ Ó×ÀÑÒÊÀ" << endl;
-
-				while (true)
-				{
-					Ground object;
-					fs >> object;
-
-					if (fs.eof())
-					{
-						break;
-					}
-
-					if (object.getCity() == city)
-					{
-						cout << object;
-					}
-
-				}
-			}
-			break;
-
-			case 0:
-				return;
-			}
-
-			fs.close();
-		}
-	}
+	(*object).enterData();
 }

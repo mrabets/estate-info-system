@@ -7,7 +7,6 @@
 #include <fstream>
 #include <iomanip>
 
-
 using namespace std;
 
 class Menu
@@ -23,8 +22,8 @@ private:
 	void userRegistration();
 	void userFileCreating();
 
-	void viewEstate();
-	void searchEstate();
+	void viewEstateFile();
+	void searchEstateFile();
 
 	void adminMenu();
 	bool isAdminAuthorization();

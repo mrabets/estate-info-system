@@ -23,7 +23,9 @@ public:
 	void deleteByIndex(int index);
 
 	void changeData(int index);
-	void saveDataToFile();
+	void fileService();
+	void searchDataInFile();
+
 	void display();
 
 	int getSize();
@@ -48,7 +50,7 @@ private:
 	Node<T>* head;
 
 	void displayBase();
-	void saveDataToFileBase(string fileName);
+	void fileServiceBase(string fileName);
 };
 
 template<class T>
@@ -340,7 +342,7 @@ void Ring<T>::changeData(int index)
 }
 
 template<class T>
-void Ring<T>::saveDataToFileBase(string fileName)
+void Ring<T>::fileServiceBase(string fileName)
 {
 	fstream fs;
 
@@ -499,33 +501,33 @@ void Ring<T>::saveDataToFileBase(string fileName)
 }
 
 template<>
-void Ring<NewBuilding>::saveDataToFile()
+void Ring<NewBuilding>::fileService()
 {
-	saveDataToFileBase("NewBuilding.txt");
+	fileServiceBase("NewBuilding.txt");
 }
 
 template<>
-void Ring<SecondaryHousing>::saveDataToFile()
+void Ring<SecondaryHousing>::fileService()
 {
-	saveDataToFileBase("SecondaryHousing.txt");
+	fileServiceBase("SecondaryHousing.txt");
 }
 
 template<>
-void Ring<Cottage>::saveDataToFile()
+void Ring<Cottage>::fileService()
 {
-	saveDataToFileBase("Cottage.txt");
+	fileServiceBase("Cottage.txt");
 }
 
 template<>
-void Ring<Country>::saveDataToFile()
+void Ring<Country>::fileService()
 {
-	saveDataToFileBase("Country.txt");
+	fileServiceBase("Country.txt");
 }
 
 template<>
-void Ring<Ground>::saveDataToFile()
+void Ring<Ground>::fileService()
 {
-	saveDataToFileBase("Ground.txt");
+	fileServiceBase("Ground.txt");
 }
 
 template<>
