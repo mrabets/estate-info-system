@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Admin">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAIAQAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Admin.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Apartment">
+    <Position X="3.75" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAACAAAAIAAAAAAAAAABIAgAgQAAAAAA=</HashCode>
+      <FileName>Apartment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Building">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIBAwAgAAAIAAAAAAAAAAAAAAAAAIAAAAAAAIACA=</HashCode>
+      <FileName>Building.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cottage">
+    <Position X="14.25" Y="7.25" Width="2.25" />
+    <InheritanceLine Type="House" ManuallyRouted="true">
+      <Path>
+        <Point X="13.25" Y="7.204" />
+        <Point X="13.25" Y="8.381" />
+        <Point X="14.25" Y="8.381" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAQAAAAAAAAAAAABEAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Cottage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Country">
+    <Position X="10" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAIEAABAAAAAAA=</HashCode>
+      <FileName>Country.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ground">
+    <Position X="0.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAgAAIAAAAAAIAAAAAAAAEAA=</HashCode>
+      <FileName>Ground.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="House">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAIAAIAAAAAAAA=</HashCode>
+      <FileName>House.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Estate">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgBgAAAAAiAgCAAAAAACRAAAAAAAAAIAAACAAAAAAA=</HashCode>
+      <FileName>Estate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interface&lt;T&gt;">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAABAAAAQAAAAAAAIAEAAAAAAAAA=</HashCode>
+      <FileName>Interface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAgAQAAEACAAAAAACAAAAAEAQAAQAgAEAAEAgAACAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewBuilding">
+    <Position X="6.75" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAEIAQAAAgAAAAA=</HashCode>
+      <FileName>NewBuilding.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ring&lt;T&gt;">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Ring&lt;T&gt;::Node&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Ring.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAIEAQkJgAAAAAAIAAAAAAAAEAAQAQBAAAAAAgA0A=</HashCode>
+      <FileName>Ring.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondaryHousing">
+    <Position X="0.5" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEBAAAAABABAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>SecondaryHousing.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAQAAAAQAggAAQIAAAAAAAAAAAgAAAAIgAAEAA=</HashCode>
+      <FileName>User.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
