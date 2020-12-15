@@ -159,15 +159,41 @@ void Menu::userMenu()
 
 bool Menu::isUserAuthorization()
 {
-	cout << "Логин: ";
-
 	string login;
-	cin >> login;
+	while (true)
+	{
+		cin.clear();
 
-	cout << "Пароль: ";
+		cout << "Логин: ";
+
+		cin >> login;
+
+		if (login.length() >= 5 && login.length() <= 12)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
 
 	string password;
-	cin >> password;
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Пароль: ";
+
+		cin >> password;
+
+		if (password.length() >= 5 && password.length() <= 12)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
 
 	system("CLS");
 
@@ -517,35 +543,35 @@ void Menu::searchEstateFile()
 		case 1:
 		{
 			Interface<NewBuilding> interface;
-			interface.searchDataInFile();
+			interface.search("NewBuilding.txt");
 			break;
 		}
 			
 		case 2:
 		{
 			Interface<SecondaryHousing> interface;
-			interface.searchDataInFile();
+			interface.search("SecondaryHousing.txt");
 			break;
 		}		
 
 		case 3:
 		{
 			Interface<Cottage> interface;
-			interface.searchDataInFile();
+			interface.search("Cottage.txt");
 			break;
 		}
 
 		case 4:
 		{
 			Interface<Country> interface;
-			interface.searchDataInFile();
+			interface.search("Country.txt");
 			break;
 		}
 
 		case 5:
 		{
 			Interface<Ground> interface;
-			interface.searchDataInFile();
+			interface.search("Ground.txt");
 			break;
 		}
 			
@@ -591,17 +617,42 @@ void Menu::adminMenu()
 }
 
 bool Menu::isAdminAuthorization()
-
 {
-	cout << "Логин: ";
-
 	string login;
-	cin >> login;
+	while (true)
+	{
+		cin.clear();
 
-	cout << "Пароль: ";
+		cout << "Логин: ";
+
+		cin >> login;
+
+		if (login.length() >= 5 && login.length() <= 12)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
 
 	string password;
-	cin >> password;
+	while (true)
+	{
+		cin.clear();
+
+		cout << "Пароль: ";
+
+		cin >> password;
+
+		if (password.length() >= 5 && password.length() <= 12)
+		{
+			break;
+		}
+
+		system("CLS");
+		cout << "Некорректное значение. Повторите ввод: " << endl;
+	}
 
 	system("CLS");
 
