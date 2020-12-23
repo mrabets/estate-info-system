@@ -127,7 +127,6 @@ void Menu::userMenu()
 		cout << "Выберите опцию: " << endl << endl
 			<< "1. Просмотреть недвижимость" << endl
 			<< "2. Искать недвижимость по параметрам" << endl
-			<< "3. Купить недвижимость" << endl << endl
 			<< "0. Назад" << endl;
 
 		int choice;
@@ -144,12 +143,6 @@ void Menu::userMenu()
 		case 2:
 			searchEstateFile();
 			break;
-
-		case 3:
-		{
-			viewEstateFile();
-			break;
-		}
 
 		case 0:
 			return;
