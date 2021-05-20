@@ -1,13 +1,5 @@
-# Study project "Information system for estate companies"
-* Developed as a console application without graphics, this information system for estate companies project in C++ is a very simple project related to general information system. This project allows users to perform a some number of functions: add, delete, change, search and save data.
-
-## Table of Contents
-* [Technologies Used](#technologies-used)
-* [Features](#features)
-
-
-## Technologies Used
-- C++ - version 20.0
+# Information system for estate companies
+* Study project developed in clear C++ as a console application without graphics, this information system for estate companies project in C++ is a very simple project related to general information system. This project allows users to perform a some number of functions: add, delete, change, search and save data.
 
 
 ## Features
